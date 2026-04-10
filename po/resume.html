@@ -32,6 +32,7 @@
       background:var(--grad); border:none; border-radius:8px;
       padding:10px 22px; color:#fff; font-size:13px; font-weight:700; cursor:pointer;
     }
+    .btn-pdf:disabled { opacity:0.6; cursor:not-allowed; }
 
     /* === RESUME WRAPPER (A4) === */
     #resume-content {
@@ -247,6 +248,9 @@
 
 <script>
   function exportPDF() {
+    const btn = document.querySelector('.btn-pdf');
+    btn.disabled = true;
+    btn.textContent = '생성 중…';
     const el = document.getElementById('resume-content');
     const opt = {
       margin: 0,
@@ -255,7 +259,10 @@
       html2canvas: { scale: 2, useCORS: true, backgroundColor: '#0d0020' },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
-    html2pdf().set(opt).from(el).save();
+    html2pdf().set(opt).from(el).save().then(() => {
+      btn.disabled = false;
+      btn.textContent = 'PDF 다운로드 ↓';
+    });
   }
 </script>
 </body>
