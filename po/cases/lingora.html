@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case 02 — Lingora AI · 박병영</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    :root {
+      --bg:#0a0014; --card:rgba(102,126,234,0.06); --border:rgba(102,126,234,0.15);
+      --grad:linear-gradient(135deg,#667eea,#764ba2);
+      --grad-wide:linear-gradient(135deg,#667eea 0%,#a855f7 60%,#ec4899 100%);
+      --accent:#667eea; --purple:#a78bfa; --text:#e2d9f3;
+      --muted:rgba(226,217,243,0.6);
+      --font:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;}
+    .back-bar{position:sticky;top:0;z-index:100;padding:16px 48px;background:rgba(10,0,20,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .back-link{color:var(--purple);text-decoration:none;font-size:14px;font-weight:600;}
+    .back-link:hover{text-decoration:underline;}
+    .hero{padding:80px 48px 56px;max-width:860px;margin:0 auto;}
+    .case-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(102,126,234,0.12);border:1px solid rgba(102,126,234,0.3);border-radius:100px;padding:6px 14px;margin-bottom:20px;font-size:11px;color:var(--purple);letter-spacing:2px;}
+    h1{font-size:clamp(28px,5vw,44px);font-weight:800;line-height:1.15;margin-bottom:16px;}
+    h1 span{background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+    .hero-sub{font-size:16px;color:var(--muted);line-height:1.8;max-width:600px;margin-bottom:36px;}
+    .result-pill{display:inline-flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 24px;}
+    .result-pill .num{font-size:32px;font-weight:800;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+    .result-pill .desc{font-size:13px;color:var(--muted);line-height:1.5;}
+    .content{max-width:860px;margin:0 auto;padding:0 48px 96px;}
+    .block{margin-bottom:56px;}
+    .block-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+    .block h2{font-size:22px;font-weight:800;margin-bottom:16px;}
+    .block p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:12px;}
+    .block ul{padding-left:20px;}
+    .block li{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:6px;}
+    .block li strong{color:var(--text);}
+    .divider{height:1px;background:var(--border);margin:56px 0;}
+    .learned-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
+    .learned-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;}
+    .learned-item h4{font-size:13px;font-weight:700;color:var(--purple);margin-bottom:8px;}
+    .learned-item p{font-size:12px;color:var(--muted);line-height:1.7;}
+    @media(max-width:768px){.hero,.content{padding-left:24px;padding-right:24px;}.learned-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<div class="back-bar">
+  <a href="/po/#cases" class="back-link">← Case Studies 목록으로</a>
+</div>
+
+<main>
+<div class="hero">
+  <div class="case-badge">CASE 02 · TUTORING</div>
+  <h1>Lingora AI UX 개선으로<br><span>효율 +20%, 만족도 85%</span></h1>
+  <p class="hero-sub">AI 영어 학습 플랫폼의 콘텐츠 관리 병목을 찾아 해결한 과정. 데이터가 없으면 개선도 없다.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    <div class="result-pill">
+      <span class="num">+20%</span>
+      <span class="desc">작업 효율 향상<br>UI/UX 개선 이후</span>
+    </div>
+    <div class="result-pill">
+      <span class="num">85%</span>
+      <span class="desc">사용자 만족도<br>플랫폼 전반</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="block">
+    <div class="block-label">Context</div>
+    <h2>문제: 튜터의 콘텐츠 제작 병목</h2>
+    <p>Lingora AI는 AI 기반 개인화 영어 학습을 제공하는 플랫폼으로, 콘텐츠 품질이 핵심 경쟁력이었습니다. 그러나 튜터들이 콘텐츠를 제작·업데이트하는 CMS 시스템이 복잡하고 느려, 콘텐츠 갱신 속도가 제품 성장의 발목을 잡고 있었습니다.</p>
+    <p>개발자로 합류했지만 제품 관점에서 문제를 정의하고, 데이터를 기반으로 개선 우선순위를 잡는 방식으로 접근했습니다.</p>
+  </div>
+  <div class="divider"></div>
+  <div class="block">
+    <div class="block-label">Process</div>
+    <h2>접근 방식</h2>
+    <ul>
+      <li><strong>병목 분석:</strong> 튜터 인터뷰와 사용 로그 분석으로 콘텐츠 등록 과정에서 반복 클릭이 가장 많이 발생하는 3개 구간 식별.</li>
+      <li><strong>CMS 재설계:</strong> 데이터 기반 콘텐츠 분류 체계 재설계. 자주 쓰는 액션을 상단으로 올리고, 폼 필드 수를 40% 축소.</li>
+      <li><strong>React + Spring 통합 최적화:</strong> 프론트엔드 상태 관리 개선으로 페이지 전환 시 불필요한 API 호출 제거, 응답 속도 개선.</li>
+      <li><strong>A/B 검증:</strong> 개선된 UI를 일부 튜터에게 먼저 적용해 작업 시간 측정 후 전체 배포.</li>
+    </ul>
+  </div>
+  <div class="divider"></div>
+  <div class="block">
+    <div class="block-label">Result</div>
+    <h2>결과</h2>
+    <ul>
+      <li>콘텐츠 제작 워크플로우 효율 <strong>+20%</strong> 향상</li>
+      <li>플랫폼 안정성 향상으로 사용자 만족도 <strong>85%</strong> 달성</li>
+      <li>콘텐츠 갱신 주기 단축으로 신규 커리큘럼 출시 속도 개선</li>
+    </ul>
+  </div>
+  <div class="divider"></div>
+  <div class="block">
+    <div class="block-label">Learned</div>
+    <h2>배운 것</h2>
+    <div class="learned-grid">
+      <div class="learned-item">
+        <h4>내부 사용자도 사용자다</h4>
+        <p>튜터(내부 운영자)의 경험이 결국 학습자(외부 사용자) 경험의 품질을 결정한다. 내부 도구도 동일한 UX 기준을 적용해야 한다.</p>
+      </div>
+      <div class="learned-item">
+        <h4>측정 없이는 개선 없다</h4>
+        <p>개선 전 현재 상태를 수치로 기록하지 않으면 나중에 얼마나 좋아졌는지 말할 수 없다. 기준값 설정이 개선의 시작이다.</p>
+      </div>
+      <div class="learned-item">
+        <h4>작은 변화가 큰 임팩트</h4>
+        <p>기능 추가가 아닌 기존 흐름의 마찰 제거만으로도 의미 있는 지표 개선이 가능하다. 복잡한 솔루션보다 단순한 제거가 먼저다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+</body>
+</html>
