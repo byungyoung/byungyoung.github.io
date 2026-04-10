@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>박병영 — Product Owner</title>
   <meta name="description" content="기술을 이해하는 Product Owner 박병영의 포트폴리오">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
   <style>
     /* === TOKENS === */
     :root {
@@ -33,7 +32,7 @@
       background:rgba(10,0,20,0.85); backdrop-filter:blur(12px);
       border-bottom:1px solid var(--border);
     }
-    .nav-logo { font-weight:800; font-size:18px; background:var(--grad-wide); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; }
+    .nav-logo { font-weight:800; font-size:18px; background:var(--grad-wide); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; }
     .nav-links { display:flex; gap:28px; list-style:none; }
     .nav-links a { color:var(--text-muted); font-size:14px; text-decoration:none; transition:color 0.2s; padding-bottom:2px; border-bottom:2px solid transparent; }
     .nav-links a.active,
@@ -63,7 +62,7 @@
     @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.85)} }
     .hero-badge span { font-size:12px; color:var(--purple); letter-spacing:1px; }
     h1.hero-title { font-size:clamp(36px,6vw,58px); font-weight:800; line-height:1.1; margin-bottom:20px; }
-    h1.hero-title .grad { background:var(--grad-wide); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    h1.hero-title .grad { background:var(--grad-wide); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
     .hero-sub { font-size:17px; color:var(--text-muted); line-height:1.8; margin-bottom:40px; max-width:560px; }
     .hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
     .btn-primary { background:var(--grad); border:none; border-radius:10px; padding:14px 28px; color:#fff; font-size:15px; font-weight:700; cursor:pointer; text-decoration:none; display:inline-block; }
@@ -78,8 +77,8 @@
     }
     .metrics-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
     .metric-item { text-align:center; }
-    .metric-num { font-size:clamp(48px,8vw,68px); font-weight:800; line-height:1; background:var(--grad-wide); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .metric-unit { font-size:32px; font-weight:800; background:var(--grad-wide); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .metric-num { font-size:clamp(48px,8vw,68px); font-weight:800; line-height:1; background:var(--grad-wide); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .metric-unit { font-size:32px; font-weight:800; background:var(--grad-wide); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
     .metric-bar { width:40px; height:3px; background:var(--grad); margin:10px auto 8px; border-radius:2px; }
     .metric-label { font-size:13px; color:var(--text-muted); line-height:1.6; }
     @media(max-width:600px){ .metrics-inner { grid-template-columns:1fr; gap:32px; } }
@@ -116,7 +115,7 @@
     .case-card h3 { font-size:16px; font-weight:700; line-height:1.4; }
     .case-card p { font-size:13px; color:var(--text-muted); line-height:1.7; flex:1; }
     .case-result { display:flex; align-items:center; gap:10px; background:rgba(102,126,234,0.08); border-radius:8px; padding:10px 14px; }
-    .case-result-num { font-size:22px; font-weight:800; background:var(--grad-wide); -webkit-background-clip:text; -webkit-text-fill-color:transparent; white-space:nowrap; }
+    .case-result-num { font-size:22px; font-weight:800; background:var(--grad-wide); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; white-space:nowrap; }
     .case-result-text { font-size:11px; color:var(--text-muted); line-height:1.5; }
     .case-link { font-size:12px; color:var(--purple); text-decoration:none; font-weight:600; margin-top:4px; display:inline-block; }
     .case-link:hover { text-decoration:underline; }
@@ -157,6 +156,7 @@
   </ul>
   <a href="/po/resume.html" target="_blank" rel="noopener" class="nav-cta">이력서 보기</a>
 </nav>
+<main>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -308,6 +308,7 @@
   </div>
 </section>
 
+</main>
 <footer>
   <p>© <span id="year"></span> 박병영. All rights reserved.</p>
 </footer>
@@ -319,7 +320,8 @@
   // Scroll progress bar
   const bar = document.getElementById('progress');
   window.addEventListener('scroll', () => {
-    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    const scrollable = document.body.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
     bar.style.width = Math.min(pct, 100) + '%';
   }, { passive: true });
 
