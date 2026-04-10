@@ -110,8 +110,10 @@
   const langToggle = document.getElementById("langToggle");
   function loadLang(lang) {
     if (!window.I18N) return;
-    applyTranslations(window.I18N[lang] || window.I18N.ko);
+    if (!window.I18N[lang]) lang = "ko";
+    applyTranslations(window.I18N[lang]);
     localStorage.setItem("lang", lang);
+    document.documentElement.lang = lang === "ko" ? "ko" : "en";
     if (langToggle) langToggle.textContent = lang === "ko" ? "KO/EN" : "EN/KO";
   }
   if (langToggle) {
