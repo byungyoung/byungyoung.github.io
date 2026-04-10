@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>박병영 이력서 — Product Owner</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    :root {
+      --bg: #0a0014; --card: rgba(102,126,234,0.06); --border: rgba(102,126,234,0.15);
+      --grad: linear-gradient(135deg,#667eea,#764ba2);
+      --grad-wide: linear-gradient(135deg,#667eea 0%,#a855f7 60%,#ec4899 100%);
+      --accent: #667eea; --purple: #a78bfa; --text: #e2d9f3;
+      --muted: rgba(226,217,243,0.6);
+      --font: 'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:var(--font); background:var(--bg); color:var(--text); min-height:100vh; }
+
+    /* === TOOLBAR (excluded from PDF) === */
+    .toolbar {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 32px;
+      background:rgba(10,0,20,0.9); backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+    }
+    .toolbar a { color:var(--purple); font-size:13px; text-decoration:none; }
+    .toolbar a:hover { text-decoration:underline; }
+    .btn-pdf {
+      background:var(--grad); border:none; border-radius:8px;
+      padding:10px 22px; color:#fff; font-size:13px; font-weight:700; cursor:pointer;
+    }
+
+    /* === RESUME WRAPPER (A4) === */
+    #resume-content {
+      width:794px; margin:80px auto 40px; padding:56px 52px;
+      background:#0d0020;
+      border:1px solid var(--border); border-radius:12px;
+    }
+
+    /* === HEADER === */
+    .r-header { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:start; margin-bottom:36px; padding-bottom:28px; border-bottom:1px solid var(--border); }
+    .r-name { font-size:38px; font-weight:800; background:var(--grad-wide); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; line-height:1.1; }
+    .r-title { font-size:15px; color:var(--purple); font-weight:600; margin-top:6px; }
+    .r-tagline { font-size:13px; color:var(--muted); margin-top:8px; line-height:1.6; max-width:420px; }
+    .r-contact { display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+    .r-contact a { font-size:12px; color:var(--purple); text-decoration:none; }
+
+    /* === METRICS ROW === */
+    .r-metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:32px; }
+    .r-metric { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px; text-align:center; position:relative; overflow:hidden; }
+    .r-metric::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--grad); }
+    .r-metric-num { font-size:30px; font-weight:800; background:var(--grad-wide); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .r-metric-label { font-size:10px; color:var(--muted); margin-top:4px; line-height:1.5; }
+
+    /* === TWO COLUMN BODY === */
+    .r-body { display:grid; grid-template-columns:240px 1fr; gap:32px; }
+
+    /* === LEFT COLUMN === */
+    .r-section { margin-bottom:28px; }
+    .r-section-title { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); margin-bottom:12px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+    .r-section p, .r-section li { font-size:12px; color:var(--muted); line-height:1.7; }
+    .r-section ul { padding-left:14px; }
+
+    /* Skill bars */
+    .skill-item { margin-bottom:10px; }
+    .skill-name { font-size:12px; color:var(--text); margin-bottom:4px; }
+    .skill-bar-bg { height:4px; background:rgba(102,126,234,0.15); border-radius:2px; overflow:hidden; }
+    .skill-bar { height:100%; background:var(--grad); border-radius:2px; }
+
+    /* === RIGHT COLUMN === */
+    .exp-entry { margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid rgba(102,126,234,0.08); }
+    .exp-entry:last-child { border-bottom:none; }
+    .exp-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px; }
+    .exp-co-name { font-size:14px; font-weight:700; color:var(--purple); }
+    .exp-dates { font-size:10px; color:var(--muted); }
+    .exp-role-name { font-size:11px; color:var(--muted); margin-bottom:6px; }
+    .exp-entry ul { padding-left:14px; }
+    .exp-entry li { font-size:12px; color:var(--muted); line-height:1.6; margin-bottom:3px; }
+    .exp-entry li strong { color:var(--text); }
+
+    /* Cert tags */
+    .cert-tag { display:inline-block; background:var(--card); border:1px solid var(--border); border-radius:4px; padding:3px 8px; font-size:10px; color:var(--purple); margin:3px 3px 0 0; }
+
+    @media(max-width:860px){
+      #resume-content { width:100%; margin:70px 0 0; border-radius:0; }
+      .r-body { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="toolbar">
+  <a href="/po/">← 포트폴리오로</a>
+  <button class="btn-pdf" onclick="exportPDF()">PDF 다운로드 ↓</button>
+</div>
+
+<main>
+<div id="resume-content">
+
+  <!-- HEADER -->
+  <div class="r-header">
+    <div>
+      <div class="r-name">박병영</div>
+      <div class="r-title">Product Owner & CTO</div>
+      <div class="r-tagline">개발자로 시작해 두 번의 창업을 거친 기술형 PO.<br>사용자 문제를 데이터로 정의하고 팀과 함께 해결합니다.</div>
+    </div>
+    <div class="r-contact">
+      <a href="mailto:panda10373@gmail.com">panda10373@gmail.com</a>
+      <a href="https://linkedin.com/in/byungyoung" target="_blank" rel="noopener">linkedin.com/in/byungyoung</a>
+      <a href="https://github.com/byungyoung" target="_blank" rel="noopener">github.com/byungyoung</a>
+    </div>
+  </div>
+
+  <!-- METRICS -->
+  <div class="r-metrics">
+    <div class="r-metric">
+      <div class="r-metric-num">92%</div>
+      <div class="r-metric-label">rPPG 감정 탐지 정확도<br>Xitst · 2025</div>
+    </div>
+    <div class="r-metric">
+      <div class="r-metric-num">85%</div>
+      <div class="r-metric-label">사용자 만족도<br>Lingora AI · 2024</div>
+    </div>
+    <div class="r-metric">
+      <div class="r-metric-num">2×</div>
+      <div class="r-metric-label">스타트업 창업 Exit<br>OSOF · Paik</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="r-body">
+
+    <!-- LEFT -->
+    <div class="r-left">
+
+      <div class="r-section">
+        <div class="r-section-title">Education</div>
+        <p style="font-size:13px;color:var(--text);font-weight:700;margin-bottom:2px">고려대학교</p>
+        <p>컴퓨터공학 B.E.</p>
+        <p style="color:rgba(226,217,243,0.35);font-size:11px">2019.03 — 2025.08</p>
+        <p style="font-size:13px;color:var(--text);font-weight:700;margin-top:10px;margin-bottom:2px">고려대학교</p>
+        <p>경영학 B.A.</p>
+        <p style="color:rgba(226,217,243,0.35);font-size:11px">2023.08 — 2025.08</p>
+      </div>
+
+      <div class="r-section">
+        <div class="r-section-title">Product Skills</div>
+        <div class="skill-item"><div class="skill-name">Product Roadmap</div><div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-name">User Research</div><div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><div class="skill-name">Sprint / Agile</div><div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-name">Data / Metrics</div><div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><div class="skill-name">System Design</div><div class="skill-bar-bg"><div class="skill-bar" style="width:88%"></div></div></div>
+      </div>
+
+      <div class="r-section">
+        <div class="r-section-title">Tech Stack</div>
+        <ul>
+          <li>React / Next.js</li>
+          <li>Python / Node.js</li>
+          <li>AWS · Docker · CI/CD</li>
+          <li>Git · Jira · Figma</li>
+        </ul>
+      </div>
+
+      <div class="r-section">
+        <div class="r-section-title">Certifications</div>
+        <span class="cert-tag">ADsP</span>
+        <span class="cert-tag">G-Local 창업밸리 2023</span>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="r-right">
+      <div class="r-section-title">Experience</div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <span class="exp-co-name">엑시스트 (Xitst)</span>
+          <span class="exp-dates">2025.03 — Present</span>
+        </div>
+        <div class="exp-role-name">Chief Technology Officer · Co-founder</div>
+        <ul>
+          <li>rPPG 기술 활용 원격 심리 분석 플랫폼 제품 로드맵 설계 및 실행</li>
+          <li><strong>92%</strong> 감정 탐지 정확도 달성 (전통 접촉식 대비)</li>
+          <li>TCI 심리 모델 기반 종합 평가 프레임워크 구축</li>
+          <li>AWS Lambda + Next.js 서버리스 아키텍처 설계</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <span class="exp-co-name">TUTORING</span>
+          <span class="exp-dates">2024.09 — 2024.12</span>
+        </div>
+        <div class="exp-role-name">Software Developer</div>
+        <ul>
+          <li>Lingora AI 영어 학습 플랫폼 개발 (React + Spring)</li>
+          <li>UI/UX 개선으로 작업 효율 <strong>+20%</strong> 달성</li>
+          <li>사용자 만족도 <strong>85%</strong> 달성</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <span class="exp-co-name">Refactor Works</span>
+          <span class="exp-dates">2025.02 — 2025.03</span>
+        </div>
+        <div class="exp-role-name">Developer Experience Manager</div>
+        <ul>
+          <li>개발자 커뮤니티 총괄 운영 및 인재풀 관리</li>
+          <li>회사-개발자 간 주요 소통 채널 운영</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <span class="exp-co-name">Paik</span>
+          <span class="exp-dates">2019.06 — 2021.02</span>
+        </div>
+        <div class="exp-role-name">CTO · Co-founder · <strong>Exit</strong></div>
+        <ul>
+          <li>외국인 대상 부동산 Agent 플랫폼 0 → 1 설계/개발</li>
+          <li>실시간 채팅 · 사용자 인증 · 반응형 UI 풀스택 구축</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <span class="exp-co-name">OSOF</span>
+          <span class="exp-dates">2016.05 — 2018.11</span>
+        </div>
+        <div class="exp-role-name">CEO · Founder · <strong>Exit</strong></div>
+        <ul>
+          <li>초중학생 대상 SW 교육봉사 프로그램 기획 및 2.5년 운영</li>
+          <li>컴퓨팅 사고력 커리큘럼 자체 개발 · IoT 도난방지 솔루션 개발</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+</main>
+
+<script>
+  function exportPDF() {
+    const el = document.getElementById('resume-content');
+    const opt = {
+      margin: 0,
+      filename: '박병영_이력서_PO.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: '#0d0020' },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(el).save();
+  }
+</script>
+</body>
+</html>
