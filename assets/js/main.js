@@ -12,11 +12,11 @@
   function setTheme(n) {
     root.setAttribute("data-theme", n);
     localStorage.setItem("theme", n);
-    if (themeToggle) themeToggle.textContent = n === "dark" ? "☀️ 라이트" : "🌙 다크";
+    if (themeToggle) themeToggle.textContent = n === "dark" ? "라이트" : "다크";
   }
   if (themeToggle) {
     const cur = root.getAttribute("data-theme");
-    themeToggle.textContent = cur === "dark" ? "☀️ 라이트" : "🌙 다크";
+    themeToggle.textContent = cur === "dark" ? "라이트" : "다크";
     themeToggle.addEventListener("click", () =>
       setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark")
     );
@@ -51,16 +51,13 @@
   window.addEventListener("scroll", updateProgress, { passive: true });
   updateProgress();
 
-  // ── FADE-IN + SKILL BAR ANIMATION ─────────────────────────
+  // ── FADE-IN ────────────────────────────────────────────────
   const animObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
           e.target.classList.add("in");
           animObserver.unobserve(e.target);
-          e.target.querySelectorAll(".sk-fill[data-width]").forEach((bar) => {
-            bar.style.width = bar.getAttribute("data-width") + "%";
-          });
         }
       });
     },
@@ -69,7 +66,7 @@
   document.querySelectorAll("[data-animate]").forEach((el) => animObserver.observe(el));
 
   // ── ACTIVE NAV HIGHLIGHT ───────────────────────────────────
-  const sectionIds = ["hero", "about", "quest", "skills", "projects", "contact"];
+  const sectionIds = ["hero", "about", "experience", "skills", "projects", "contact"];
   const sectionMap = sectionIds
     .map((id) => ({ id, el: document.getElementById(id) }))
     .filter((o) => !!o.el);

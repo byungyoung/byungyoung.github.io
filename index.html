@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>박병영 | Developer & Product Owner</title>
-  <meta name="description" content="개발자이자 Product Owner. 두 번의 창업 Exit, AI 감정 분석 플랫폼 CTO." />
+  <title>박병영 | Product Owner & Developer</title>
+  <meta name="description" content="기획한 제품을 직접 만드는 Product Owner. 두 번의 창업 Exit, rPPG 감정 분석 플랫폼 CTO, 현재 CURI AI." />
   <meta name="author" content="박병영 Byungyoung Park" />
   <link rel="canonical" href="https://byungyoung.github.io" />
   <meta name="robots" content="index,follow" />
   <meta name="color-scheme" content="light dark" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="박병영 | Developer & Product Owner" />
-  <meta property="og:description" content="개발자이자 Product Owner. 두 번의 창업 Exit, AI 감정 분석 플랫폼 CTO." />
+  <meta property="og:title" content="박병영 | Product Owner & Developer" />
+  <meta property="og:description" content="기획한 제품을 직접 만드는 Product Owner. 두 번의 창업 Exit, rPPG 감정 분석 플랫폼 CTO, 현재 CURI AI." />
   <meta property="og:url" content="https://byungyoung.github.io" />
   <script type="application/ld+json">
   {
@@ -19,9 +19,10 @@
     "@type": "Person",
     "name": "박병영",
     "url": "https://byungyoung.github.io",
-    "jobTitle": "CTO & Product Owner",
+    "jobTitle": "Product Owner",
     "email": "mailto:panda10373@gmail.com",
-    "worksFor": { "@type": "Organization", "name": "Xitst" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "고려대학교" },
+    "worksFor": { "@type": "Organization", "name": "CURI AI" },
     "sameAs": [
       "https://github.com/byungyoung",
       "https://www.linkedin.com/in/byungyoung"
@@ -29,8 +30,8 @@
   }
   </script>
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="박병영 | Developer & Product Owner" />
-  <meta name="twitter:description" content="개발자이자 Product Owner. 두 번의 창업 Exit, AI 감정 분석 플랫폼 CTO." />
+  <meta name="twitter:title" content="박병영 | Product Owner & Developer" />
+  <meta name="twitter:description" content="기획한 제품을 직접 만드는 Product Owner. 두 번의 창업 Exit, rPPG 감정 분석 플랫폼 CTO, 현재 CURI AI." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" crossorigin />
   <link rel="stylesheet" href="assets/css/style.css" />
@@ -47,15 +48,16 @@
       <div class="logo"><a href="#top">BY.</a></div>
       <nav class="primary-nav" aria-label="Primary">
         <ul class="nav-list">
-          <li><a data-i18n="nav.about"    href="#about">About</a></li>
-          <li><a data-i18n="nav.quest"    href="#quest">Quest Log</a></li>
-          <li><a data-i18n="nav.skills"   href="#skills">Skills</a></li>
-          <li><a data-i18n="nav.projects" href="#projects">Projects</a></li>
-          <li><a data-i18n="nav.contact"  href="#contact">Contact</a></li>
+          <li><a data-i18n="nav.about"      href="#about">About</a></li>
+          <li><a data-i18n="nav.experience" href="#experience">Experience</a></li>
+          <li><a data-i18n="nav.skills"     href="#skills">Skills</a></li>
+          <li><a data-i18n="nav.projects"   href="#projects">Projects</a></li>
+          <li><a data-i18n="nav.contact"    href="#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-controls">
-        <button id="themeToggle" class="ctrl-btn" aria-label="Toggle dark mode">🌙 다크</button>
+        <a href="/po/" class="nav-po" data-i18n="nav.po">PO 포트폴리오</a>
+        <button id="themeToggle" class="ctrl-btn" aria-label="Toggle dark mode">다크</button>
         <button id="langToggle"  class="ctrl-btn" aria-label="Toggle language">KO/EN</button>
       </div>
     </div>
@@ -65,185 +67,181 @@
     <div class="container">
 
       <section class="hero" id="hero" data-animate>
-        <div class="status-badge">
-          <div class="status-dot"></div>
-          <span data-i18n="hero.badge">OPEN TO OPPORTUNITIES</span>
-        </div>
+        <div class="status-badge" data-i18n="hero.badge">이직 기회를 열어두고 있습니다</div>
         <h1 class="hero-h1" data-i18n="hero.h1">
-          개발하고,<br>창업하고,<br><span class="muted">제품을 만듭니다.</span>
+          기획한 제품을<br>직접 만듭니다
         </h1>
         <p class="hero-sub" data-i18n="hero.subtitle">
-          고려대학교 CS + 경영 복수전공. 개발자로 시작해 두 번 창업하고,<br>지금은 AI 기반 제품을 만들고 있습니다.
+          고려대학교에서 컴퓨터학과 경영학을 복수전공했습니다. 개발자로 시작해 두 번 창업했고 두 곳 모두 Exit했습니다.
+          지금은 CURI AI에서 Voice AI 리서치 플랫폼의 Product Owner로 일합니다.
         </p>
         <div class="hero-ctas">
-          <a href="#quest" class="cta-main" data-i18n="hero.ctaQuest">Quest Log 보기 ↓</a>
+          <a href="/po/" class="cta-main" data-i18n="hero.ctaPo">PO 포트폴리오 보기</a>
+          <a href="/po/resume.html" class="cta-ghost" data-i18n="hero.ctaResume">이력서</a>
           <a href="https://github.com/byungyoung" target="_blank" rel="noopener" class="cta-ghost" data-i18n="hero.ctaGithub">GitHub</a>
-          <a href="/po/" class="cta-text" data-i18n="hero.ctaPo">PO 포트폴리오 →</a>
         </div>
       </section>
 
-      <div class="po-banner" data-animate>
-        <div>
-          <div class="po-banner-title" data-i18n="po.title">Product Owner로도 활동 중이에요</div>
-          <div class="po-banner-sub"   data-i18n="po.sub">rPPG 감정 분석 · UX 개선 · 스타트업 Exit 케이스 스터디</div>
+      <a class="po-banner" href="/po/" data-animate>
+        <div class="po-banner-text">
+          <div class="po-banner-title" data-i18n="po.title">Product Owner 직무 포트폴리오</div>
+          <div class="po-banner-sub"   data-i18n="po.sub">제품 결정의 근거와 기각 사유까지 남긴 케이스 스터디 4편</div>
         </div>
-        <a href="/po/" class="po-banner-btn" data-i18n="po.btn">PO 페이지 →</a>
-      </div>
+        <span class="po-banner-btn" data-i18n="po.btn">보러 가기</span>
+      </a>
 
       <section class="section" id="about">
-        <div class="sec-eyebrow" data-i18n="about.heading">About</div>
-        <p class="about-body" data-animate data-i18n="about.body">
-          코드를 짜다가 <b>두 번 창업</b>했고, 제품을 만들다 보니 <b>PO</b>가 됐습니다.<br>
-          기술과 비즈니스 사이에서 무언가를 만드는 걸 좋아합니다.<br>
-          현재는 Xitst에서 <b>rPPG 기반 AI 감정 분석 플랫폼</b>을 만들고 있어요.
-        </p>
+        <div class="sec-head">
+          <div class="sec-eyebrow">About</div>
+          <h2 class="sec-heading" data-i18n="about.heading">기술과 제품 사이에서</h2>
+        </div>
+        <div class="prose" data-animate>
+          <p data-i18n="about.body1">
+            코드를 쓰다가 두 번 창업했고, 제품을 만들다 보니 Product Owner가 됐습니다.
+            기획서를 넘기고 기다리는 대신 직접 만들어 확인하는 쪽을 택해 왔습니다.
+          </p>
+          <p data-i18n="about.body2">
+            결정을 먼저 문서로 남기고, 그 결정을 무너뜨릴 게이트를 스스로 만들고,
+            게이트에 걸리면 내 결과물을 반려합니다. 그 과정을 PO 포트폴리오에 정리해 두었습니다.
+          </p>
+        </div>
       </section>
 
-      <section class="section" id="quest">
-        <div class="ql-meta">
-          <div class="ql-heading" data-i18n="ql.heading">Quest Log</div>
-          <div class="ql-chip"    data-i18n="ql.chip">5 COMPLETED · 1 ACTIVE</div>
+      <section class="section" id="experience">
+        <div class="sec-head">
+          <div class="sec-eyebrow">Experience</div>
+          <h2 class="sec-heading" data-i18n="exp.heading">경력</h2>
         </div>
-        <div class="quest" data-animate>
-          <div class="q-icon active">⚡</div>
-          <div class="q-right">
-            <div class="q-row1">
-              <span class="q-title" data-i18n="ql.q1.title">Xitst — CTO</span>
-              <span class="q-pill pill-active" data-i18n="ql.q1.status">ACTIVE</span>
+        <ol class="timeline">
+          <li class="tl-item" data-animate>
+            <div class="tl-period" data-i18n="exp.e1.period">2026.01 — 재직 중</div>
+            <div class="tl-body">
+              <h3 class="tl-role" data-i18n="exp.e1.role">Product Owner · CURI AI</h3>
+              <p class="tl-desc" data-i18n="exp.e1.desc">K-뷰티와 패션 B2B 고객을 위한 Voice AI 대화형 리서치 플랫폼. 자동화 인터뷰 파이프라인을 기획하고 제품 3종을 직접 개발해 출시했습니다.</p>
+              <div class="tl-tags"><span class="tag">Product</span><span class="tag">Voice AI</span><span class="tag">FastAPI</span><span class="tag">Next.js</span></div>
             </div>
-            <div class="q-period" data-i18n="ql.q1.period">2025.03 – 현재 · AI 원격 심리 분석 플랫폼</div>
-            <div class="q-desc"   data-i18n="ql.q1.desc">rPPG 기술로 얼굴 영상에서 감정 상태를 비접촉 분석. 선행 연구 기준 92%를 설계 목표로.</div>
-            <div class="q-tags"><span class="tag">Python</span><span class="tag">AI/ML</span><span class="tag">React</span><span class="tag">rPPG</span></div>
-          </div>
-        </div>
-        <div class="quest" data-animate>
-          <div class="q-icon done">✓</div>
-          <div class="q-right">
-            <div class="q-row1">
-              <span class="q-title" data-i18n="ql.q2.title">Refactor Works — Dev Experience Manager</span>
-              <span class="q-pill pill-done" data-i18n="ql.q2.status">DONE</span>
+          </li>
+          <li class="tl-item" data-animate>
+            <div class="tl-period" data-i18n="exp.e2.period">2025.03 — 2025.12</div>
+            <div class="tl-body">
+              <h3 class="tl-role" data-i18n="exp.e2.role">CTO · Xitst</h3>
+              <p class="tl-desc" data-i18n="exp.e2.desc">얼굴 영상에서 생체 신호를 추출해 감정을 추론하는 rPPG 플랫폼. 선행 연구가 보고한 정확도를 설계 기준으로 삼아 신호 처리 파이프라인을 구축했습니다.</p>
+              <div class="tl-tags"><span class="tag">rPPG</span><span class="tag">Computer Vision</span><span class="tag">Python</span><span class="tag">AWS</span></div>
             </div>
-            <div class="q-period" data-i18n="ql.q2.period">2025.02 – 2025.03</div>
-            <div class="q-desc"   data-i18n="ql.q2.desc">개발자 경험 개선 및 내부 도구 관리.</div>
-            <div class="q-tags"><span class="tag">DX</span><span class="tag">Tooling</span></div>
-          </div>
-        </div>
-        <div class="quest" data-animate>
-          <div class="q-icon done">✓</div>
-          <div class="q-right">
-            <div class="q-row1">
-              <span class="q-title" data-i18n="ql.q3.title">TUTORING — Software Developer</span>
-              <span class="q-pill pill-done" data-i18n="ql.q3.status">DONE</span>
+          </li>
+          <li class="tl-item" data-animate>
+            <div class="tl-period" data-i18n="exp.e3.period">2025.02 — 2025.03</div>
+            <div class="tl-body">
+              <h3 class="tl-role" data-i18n="exp.e3.role">Developer Experience Manager · Refactor Works</h3>
+              <p class="tl-desc" data-i18n="exp.e3.desc">시니어 개발자 커뮤니티를 주선하고 주 1회 밋업을 운영했습니다. 매주 그 주의 기술·사회 이슈를 주제로 토론했고 구성원의 이직을 지원했습니다.</p>
+              <div class="tl-tags"><span class="tag">Community</span><span class="tag">DX</span></div>
             </div>
-            <div class="q-period" data-i18n="ql.q3.period">2024.09 – 2024.12 · Lingora AI</div>
-            <div class="q-desc"   data-i18n="ql.q3.desc">AI 영어 튜터링 UX 개선. 학습 효율 +20%, 사용성 평가 85점.</div>
-            <div class="q-tags"><span class="tag">Next.js</span><span class="tag">UX</span><span class="tag">AI</span></div>
-          </div>
-        </div>
-        <div class="quest" data-animate>
-          <div class="q-icon exit">🏆</div>
-          <div class="q-right">
-            <div class="q-row1">
-              <span class="q-title" data-i18n="ql.q4.title">Paik — CTO</span>
-              <span class="q-pill pill-exit" data-i18n="ql.q4.status">EXIT ✓</span>
+          </li>
+          <li class="tl-item" data-animate>
+            <div class="tl-period" data-i18n="exp.e4.period">2024.09 — 2024.12</div>
+            <div class="tl-body">
+              <h3 class="tl-role" data-i18n="exp.e4.role">Software Developer · Lingora AI</h3>
+              <p class="tl-desc" data-i18n="exp.e4.desc">AI 영어 학습 플랫폼의 핵심 UX 플로우를 재설계했습니다. CMS 병목 3건을 찾아 폼 필드를 40% 줄였고 작업 효율 20% 향상, 사용성 평가 85점을 얻었습니다.</p>
+              <div class="tl-tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Spring</span><span class="tag">UX</span></div>
             </div>
-            <div class="q-period" data-i18n="ql.q4.period">2019.06 – 2021.02 · 외국인 부동산 플랫폼</div>
-            <div class="q-desc"   data-i18n="ql.q4.desc">0에서 시작해 외국인 대상 부동산 중개 플랫폼 구축 후 성공적 Exit.</div>
-            <div class="q-tags"><span class="tag">Startup</span><span class="tag">Fullstack</span><span class="tag">Exit</span></div>
-          </div>
-        </div>
-        <div class="quest" data-animate>
-          <div class="q-icon exit">🏆</div>
-          <div class="q-right">
-            <div class="q-row1">
-              <span class="q-title" data-i18n="ql.q5.title">OSOF — CEO</span>
-              <span class="q-pill pill-exit" data-i18n="ql.q5.status">EXIT ✓</span>
+          </li>
+          <li class="tl-item" data-animate>
+            <div class="tl-period" data-i18n="exp.e5.period">2019.06 — 2021.01</div>
+            <div class="tl-body">
+              <h3 class="tl-role" data-i18n="exp.e5.role">공동창업자 · CTO · Paik <span class="tl-flag" data-i18n="exp.exit">Exit</span></h3>
+              <p class="tl-desc" data-i18n="exp.e5.desc">국내 거주 외국인 대상 부동산 중개 플랫폼을 0에서 1까지 만들었습니다. 제품 설계부터 풀스택 구현, 에이전트 리크루팅까지 맡았고 매각으로 마무리했습니다.</p>
+              <div class="tl-tags"><span class="tag">Fullstack</span><span class="tag">WebSocket</span><span class="tag">MySQL</span></div>
             </div>
-            <div class="q-period" data-i18n="ql.q5.period">2016.05 – 2018.11 · 청소년 SW 교육</div>
-            <div class="q-desc"   data-i18n="ql.q5.desc">청소년 소프트웨어 교육 서비스 2.5년 운영 후 Exit.</div>
-            <div class="q-tags"><span class="tag">EdTech</span><span class="tag">CEO</span><span class="tag">Exit</span></div>
-          </div>
-        </div>
+          </li>
+          <li class="tl-item" data-animate>
+            <div class="tl-period" data-i18n="exp.e6.period">2016.05 — 2018.11</div>
+            <div class="tl-body">
+              <h3 class="tl-role" data-i18n="exp.e6.role">공동창업자 · 대표 · OSOF <span class="tl-flag" data-i18n="exp.exit">Exit</span></h3>
+              <p class="tl-desc" data-i18n="exp.e6.desc">청소년 소프트웨어 교육 서비스를 2년 6개월 운영했습니다. 모객과 커리큘럼, 운영 체계를 처음부터 만들고 매각했습니다.</p>
+              <div class="tl-tags"><span class="tag">EdTech</span><span class="tag">Operations</span></div>
+            </div>
+          </li>
+        </ol>
       </section>
 
       <section class="section" id="skills">
-        <div class="sec-eyebrow">Skills</div>
-        <div class="sec-heading" data-i18n="skills.heading">Level Stats</div>
-        <div class="skills-grid" data-animate>
-          <div class="sk">
-            <div class="sk-row"><span class="sk-name">React / Next.js</span><span class="sk-lv">Lv.8 · 85%</span></div>
-            <div class="sk-track"><div class="sk-fill" data-width="85"></div></div>
+        <div class="sec-head">
+          <div class="sec-eyebrow">Skills</div>
+          <h2 class="sec-heading" data-i18n="skills.heading">할 수 있는 것</h2>
+        </div>
+        <div class="skill-groups" data-animate>
+          <div class="skill-group">
+            <h3 class="skill-group-title" data-i18n="skills.g1">프로덕트</h3>
+            <div class="tag-row">
+              <span class="tag">제품 기획</span><span class="tag">로드맵 · 우선순위</span><span class="tag">OKR</span><span class="tag">애자일 실행</span><span class="tag">PMF 검증</span><span class="tag">GTM</span>
+            </div>
           </div>
-          <div class="sk">
-            <div class="sk-row"><span class="sk-name">Python / AI</span><span class="sk-lv">Lv.8 · 82%</span></div>
-            <div class="sk-track"><div class="sk-fill" data-width="82"></div></div>
+          <div class="skill-group">
+            <h3 class="skill-group-title" data-i18n="skills.g2">언어 · 프레임워크</h3>
+            <div class="tag-row">
+              <span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">FastAPI</span><span class="tag">Spring</span>
+            </div>
           </div>
-          <div class="sk">
-            <div class="sk-row"><span class="sk-name">TypeScript</span><span class="sk-lv">Lv.7 · 75%</span></div>
-            <div class="sk-track"><div class="sk-fill" data-width="75"></div></div>
+          <div class="skill-group">
+            <h3 class="skill-group-title" data-i18n="skills.g3">AI · 데이터</h3>
+            <div class="tag-row">
+              <span class="tag">LLM 제품 적용</span><span class="tag">프롬프트 엔지니어링</span><span class="tag">AI 에이전트 설계</span><span class="tag">Voice AI</span><span class="tag">컴퓨터 비전</span><span class="tag">rPPG</span><span class="tag">모델 평가</span>
+            </div>
           </div>
-          <div class="sk">
-            <div class="sk-row"><span class="sk-name">AWS / DevOps</span><span class="sk-lv">Lv.6 · 65%</span></div>
-            <div class="sk-track"><div class="sk-fill" data-width="65"></div></div>
-          </div>
-          <div class="sk">
-            <div class="sk-row"><span class="sk-name">Product / OKR</span><span class="sk-lv">Lv.9 · 92%</span></div>
-            <div class="sk-track"><div class="sk-fill" data-width="92"></div></div>
-          </div>
-          <div class="sk">
-            <div class="sk-row"><span class="sk-name">UI/UX Design</span><span class="sk-lv">Lv.6 · 68%</span></div>
-            <div class="sk-track"><div class="sk-fill" data-width="68"></div></div>
+          <div class="skill-group">
+            <h3 class="skill-group-title" data-i18n="skills.g4">인프라 · 분석</h3>
+            <div class="tag-row">
+              <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">Neo4j</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">SQL</span><span class="tag">GA4</span>
+            </div>
           </div>
         </div>
-        <div data-animate>
-          <div class="ach-label" data-i18n="skills.ach.label">Achievements Unlocked</div>
-          <div class="ach-row">
-            <div class="ach"><span class="ach-icon">🏆</span><div><div class="ach-name" data-i18n="skills.ach1.name">Serial Founder</div><div class="ach-desc" data-i18n="skills.ach1.desc">2× Exit</div></div></div>
-            <div class="ach"><span class="ach-icon">🧠</span><div><div class="ach-name" data-i18n="skills.ach2.name">AI Builder</div><div class="ach-desc" data-i18n="skills.ach2.desc">rPPG 파이프라인 설계</div></div></div>
-            <div class="ach"><span class="ach-icon">🎓</span><div><div class="ach-name" data-i18n="skills.ach3.name">Dual Major</div><div class="ach-desc" data-i18n="skills.ach3.desc">CS + 경영 · 고려대</div></div></div>
-            <div class="ach"><span class="ach-icon">📊</span><div><div class="ach-name" data-i18n="skills.ach4.name">ADsP</div><div class="ach-desc" data-i18n="skills.ach4.desc">데이터 분석 준전문가</div></div></div>
-          </div>
+        <div class="credentials" data-animate>
+          <div class="cred"><span class="cred-k" data-i18n="cred.edu">학력</span><span class="cred-v" data-i18n="cred.eduV">고려대학교 컴퓨터학 · 경영학 복수전공 (2019.03 — 2025.02)</span></div>
+          <div class="cred"><span class="cred-k" data-i18n="cred.cert">자격</span><span class="cred-v" data-i18n="cred.certV">SQLD (2023.07) · ADsP (2023.03) · 한국데이터산업진흥원</span></div>
+          <div class="cred"><span class="cred-k" data-i18n="cred.lang">어학</span><span class="cred-v" data-i18n="cred.langV">영어 비즈니스 회화 · OPIc IH</span></div>
+          <div class="cred"><span class="cred-k" data-i18n="cred.award">수상</span><span class="cred-v" data-i18n="cred.awardV">FIRST Tech Challenge 전국 1위 · FIRST Scholarship (2016 — 2018)</span></div>
+          <div class="cred"><span class="cred-k" data-i18n="cred.mil">병역</span><span class="cred-v" data-i18n="cred.milV">병역필 (2021.02 — 2022.07, 18개월)</span></div>
         </div>
       </section>
 
       <section class="section" id="projects">
-        <div class="sec-eyebrow">Projects</div>
-        <div class="sec-heading" data-i18n="projects.heading">주요 작업물</div>
+        <div class="sec-head">
+          <div class="sec-eyebrow">Projects</div>
+          <h2 class="sec-heading" data-i18n="projects.heading">주요 작업물</h2>
+        </div>
         <div class="projects-grid" data-animate>
           <article class="project-card">
-            <span class="proj-emoji">🧬</span>
-            <div class="proj-name" data-i18n="projects.p1.name">Xitst rPPG Platform</div>
-            <div class="proj-desc" data-i18n="projects.p1.desc">얼굴 영상으로 감정 분석하는 비접촉 심리 측정 AI 플랫폼.</div>
+            <div class="proj-name" data-i18n="projects.p1.name">Xitst rPPG 플랫폼</div>
+            <div class="proj-desc" data-i18n="projects.p1.desc">카메라만으로 심리 상태를 읽는 비접촉 감정 분석. 신호 처리 파이프라인 설계와 TCI 심리 모델 통합.</div>
             <a class="proj-link" href="/po/cases/xitst.html" data-i18n="projects.p1.link">케이스 스터디</a>
           </article>
           <article class="project-card">
-            <span class="proj-emoji">🌐</span>
-            <div class="proj-name" data-i18n="projects.p2.name">Lingora AI Tutor</div>
-            <div class="proj-desc" data-i18n="projects.p2.desc">AI 기반 영어 튜터링. UX 개선으로 사용성 평가 85점.</div>
+            <div class="proj-name" data-i18n="projects.p2.name">Lingora AI 튜터</div>
+            <div class="proj-desc" data-i18n="projects.p2.desc">AI 영어 학습 플랫폼. CMS 병목을 찾아 콘텐츠 제작 워크플로우를 단순화했습니다.</div>
             <a class="proj-link" href="/po/cases/lingora.html" data-i18n="projects.p2.link">케이스 스터디</a>
           </article>
           <article class="project-card">
-            <span class="proj-emoji">🏠</span>
             <div class="proj-name" data-i18n="projects.p3.name">Paik 부동산 플랫폼</div>
-            <div class="proj-desc" data-i18n="projects.p3.desc">외국인 대상 부동산 중개 플랫폼. 0→1 빌드 후 Exit.</div>
+            <div class="proj-desc" data-i18n="projects.p3.desc">외국인 대상 부동산 중개 플랫폼. 현장 인터뷰로 수요를 검증하고 0에서 1까지 만든 뒤 Exit.</div>
             <a class="proj-link" href="/po/cases/paik.html" data-i18n="projects.p3.link">케이스 스터디</a>
           </article>
           <article class="project-card">
-            <span class="proj-emoji">💻</span>
-            <div class="proj-name" data-i18n="projects.p4.name">이 포트폴리오</div>
-            <div class="proj-desc" data-i18n="projects.p4.desc">순수 HTML/CSS/JS. 빌드 툴 없이 GitHub Pages 배포.</div>
-            <a class="proj-link" href="https://github.com/byungyoung" target="_blank" rel="noopener" data-i18n="projects.p4.link">GitHub</a>
+            <div class="proj-name" data-i18n="projects.p4.name">OSOF SW 교육</div>
+            <div class="proj-desc" data-i18n="projects.p4.desc">청소년 소프트웨어 교육 서비스. 커리큘럼과 운영을 직접 설계해 2년 6개월 운영 후 Exit.</div>
+            <a class="proj-link" href="/po/cases/osof.html" data-i18n="projects.p4.link">케이스 스터디</a>
           </article>
         </div>
       </section>
 
       <section class="section" id="contact">
-        <div class="sec-eyebrow">Contact</div>
-        <div class="sec-heading" data-i18n="contact.heading">연락하기</div>
+        <div class="sec-head">
+          <div class="sec-eyebrow">Contact</div>
+          <h2 class="sec-heading" data-i18n="contact.heading">연락하기</h2>
+        </div>
         <div class="contact-row" data-animate>
-          <a class="contact-a" href="mailto:panda10373@gmail.com">✉️ panda10373@gmail.com</a>
-          <a class="contact-a" href="https://www.linkedin.com/in/byungyoung" target="_blank" rel="noopener">💼 LinkedIn</a>
-          <a class="contact-a" href="https://github.com/byungyoung" target="_blank" rel="noopener">🐙 GitHub</a>
+          <a class="contact-a" href="mailto:panda10373@gmail.com">panda10373@gmail.com</a>
+          <a class="contact-a" href="https://www.linkedin.com/in/byungyoung" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="contact-a" href="https://github.com/byungyoung" target="_blank" rel="noopener">GitHub</a>
         </div>
       </section>
 
@@ -252,7 +250,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> 박병영. All rights reserved.</p>
+      <p>© <span id="year"></span> 박병영</p>
     </div>
   </footer>
 

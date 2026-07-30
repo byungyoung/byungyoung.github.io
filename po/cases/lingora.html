@@ -5,43 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Case 02 — Lingora AI · 박병영</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <style>
-    :root {
-      --bg:#0a0014; --card:rgba(102,126,234,0.06); --border:rgba(102,126,234,0.15);
-      --grad:linear-gradient(135deg,#667eea,#764ba2);
-      --grad-wide:linear-gradient(135deg,#667eea 0%,#a855f7 60%,#ec4899 100%);
-      --accent:#667eea; --purple:#a78bfa; --text:#e2d9f3;
-      --muted:rgba(226,217,243,0.6);
-      --font:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;}
-    .back-bar{position:sticky;top:0;z-index:100;padding:16px 48px;background:rgba(10,0,20,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
-    .back-link{color:var(--purple);text-decoration:none;font-size:14px;font-weight:600;}
-    .back-link:hover{text-decoration:underline;}
-    .hero{padding:80px 48px 56px;max-width:860px;margin:0 auto;}
-    .case-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(102,126,234,0.12);border:1px solid rgba(102,126,234,0.3);border-radius:100px;padding:6px 14px;margin-bottom:20px;font-size:11px;color:var(--purple);letter-spacing:2px;}
-    h1{font-size:clamp(28px,5vw,44px);font-weight:800;line-height:1.15;margin-bottom:16px;}
-    h1 span{background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-    .hero-sub{font-size:16px;color:var(--muted);line-height:1.8;max-width:600px;margin-bottom:36px;}
-    .result-pill{display:inline-flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 24px;}
-    .result-pill .num{font-size:32px;font-weight:800;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-    .result-pill .desc{font-size:13px;color:var(--muted);line-height:1.5;}
-    .content{max-width:860px;margin:0 auto;padding:0 48px 96px;}
-    .block{margin-bottom:56px;}
-    .block-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
-    .block h2{font-size:22px;font-weight:800;margin-bottom:16px;}
-    .block p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:12px;}
-    .block ul{padding-left:20px;}
-    .block li{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:6px;}
-    .block li strong{color:var(--text);}
-    .divider{height:1px;background:var(--border);margin:56px 0;}
-    .learned-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
-    .learned-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;}
-    .learned-item h4{font-size:13px;font-weight:700;color:var(--purple);margin-bottom:8px;}
-    .learned-item p{font-size:12px;color:var(--muted);line-height:1.7;}
-    @media(max-width:768px){.hero,.content{padding-left:24px;padding-right:24px;}.learned-grid{grid-template-columns:1fr;}}
-  </style>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/po.css">
+  <script>try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));}catch(e){}</script>
 </head>
 <body>
 
@@ -51,7 +17,7 @@
 
 <main>
 <div class="hero">
-  <div class="case-badge">CASE 02 · TUTORING</div>
+  <div class="case-badge">CASE 02 · LINGORA AI</div>
   <h1>Lingora AI UX 개선으로<br><span>효율 +20%, 사용성 평가 85점</span></h1>
   <p class="hero-sub">AI 영어 학습 플랫폼의 콘텐츠 관리 병목을 찾아 해결한 과정. 데이터가 없으면 개선도 없다.</p>
   <div style="display:flex;gap:12px;flex-wrap:wrap;">
