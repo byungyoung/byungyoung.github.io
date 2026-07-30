@@ -52,11 +52,11 @@
 <main>
 <div class="hero">
   <div class="case-badge">CASE 01 · XITST</div>
-  <h1>비접촉 감정 분석으로<br><span>정확도 92% 달성</span></h1>
-  <p class="hero-sub">카메라만으로 심리 상태를 측정한다. 접촉식 장비 없이 임상 수준의 정확도를 만들어낸 과정.</p>
+  <h1>카메라만으로<br><span>심리 상태를 읽는 파이프라인</span></h1>
+  <p class="hero-sub">접촉식 장비 없이 생체 신호를 추출한다. rPPG 선행 연구가 보고한 정확도를 설계 기준으로 삼아 검증한 과정.</p>
   <div class="result-pill">
     <span class="num">92%</span>
-    <span class="desc">감정 탐지 정확도<br>전통 접촉식 장비 대비</span>
+    <span class="desc">rPPG 선행 연구 보고 정확도<br>설계 목표 기준 · 접촉식 PPG는 약 98%</span>
   </div>
 </div>
 
@@ -65,7 +65,7 @@
     <div class="block-label">Context</div>
     <h2>문제: 심리 치료의 접근성</h2>
     <p>전통적인 심리 상태 측정은 전극·센서 등 접촉식 장비가 필요해 병원 방문이 필수였습니다. Xitst는 <strong>비대면으로 심리 상태를 분석</strong>하고 맞춤형 치유를 제공하는 플랫폼을 목표로 했고, 핵심 기술 문제는 "카메라만으로 신뢰할 수 있는 생체 신호를 추출할 수 있는가"였습니다.</p>
-    <p>CTO로서 제품 로드맵 설계와 함께 rPPG(Remote Photoplethysmography) 기술의 실현 가능성을 검증하고 임상 적용 수준까지 끌어올리는 것이 제 역할이었습니다.</p>
+    <p>CTO로서 제품 로드맵 설계와 함께 rPPG(Remote Photoplethysmography) 기술의 실현 가능성을 검증하고 프로덕션에 적용하는 것이 제 역할이었습니다.</p>
   </div>
   <div class="divider"></div>
   <div class="block">
@@ -75,7 +75,7 @@
       <li><strong>신호 처리 파이프라인 설계:</strong> 얼굴 영상에서 미세한 혈류 변화를 감지하는 rPPG 알고리즘 구현. 조명·움직임에 따른 노이즈를 필터링하는 신호 처리 파이프라인을 단계별로 구축.</li>
       <li><strong>TCI 심리 모델 통합:</strong> 원시 생체 신호를 TCI(기질 및 성격 검사) 모델과 결합해 감정 상태로 변환하는 데이터 통합 시스템 개발.</li>
       <li><strong>클라우드 아키텍처:</strong> 실시간 처리를 위해 AWS Lambda + API Gateway 서버리스 구조 채택. Next.js SSR로 프론트엔드 응답 속도 최적화.</li>
-      <li><strong>반복 검증:</strong> 내부 테스트 → 외부 피험자 실험 → 정확도 측정의 사이클을 반복해 92% 달성.</li>
+      <li><strong>목표 기준 설정:</strong> rPPG 선행 연구가 보고한 정확도(약 92%, 접촉식 PPG는 약 98%)를 설계 기준으로 삼고, 조명·움직임 조건별로 신호 품질을 점검하며 파이프라인을 조정.</li>
     </ul>
   </div>
   <div class="divider"></div>
@@ -83,7 +83,7 @@
     <div class="block-label">Result</div>
     <h2>결과</h2>
     <ul>
-      <li>전통 접촉식 방법 대비 <strong>92% 감정 탐지 정확도</strong> 달성</li>
+      <li>rPPG 선행 연구 보고 정확도(약 <strong>92%</strong>)를 목표로 한 신호 처리 파이프라인 구현 — 접촉식 PPG(약 98%) 대비 정확도를 내주고 비접촉이라는 접근성을 얻는 트레이드오프</li>
       <li>실시간 생체 데이터 + 심리 프로필 통합 치료용 채팅 서비스 출시</li>
       <li>확장 가능한 서버리스 인프라로 동시 사용자 처리 비용 절감</li>
     </ul>
