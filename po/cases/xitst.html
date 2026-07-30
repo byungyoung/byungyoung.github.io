@@ -5,43 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Case 01 — Xitst rPPG · 박병영</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <style>
-    :root {
-      --bg:#0a0014; --card:rgba(102,126,234,0.06); --border:rgba(102,126,234,0.15);
-      --grad:linear-gradient(135deg,#667eea,#764ba2);
-      --grad-wide:linear-gradient(135deg,#667eea 0%,#a855f7 60%,#ec4899 100%);
-      --accent:#667eea; --purple:#a78bfa; --text:#e2d9f3;
-      --muted:rgba(226,217,243,0.6);
-      --font:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;}
-    .back-bar{position:sticky;top:0;z-index:100;padding:16px 48px;background:rgba(10,0,20,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
-    .back-link{color:var(--purple);text-decoration:none;font-size:14px;font-weight:600;}
-    .back-link:hover{text-decoration:underline;}
-    .hero{padding:80px 48px 56px;max-width:860px;margin:0 auto;}
-    .case-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(102,126,234,0.12);border:1px solid rgba(102,126,234,0.3);border-radius:100px;padding:6px 14px;margin-bottom:20px;font-size:11px;color:var(--purple);letter-spacing:2px;}
-    h1{font-size:clamp(28px,5vw,44px);font-weight:800;line-height:1.15;margin-bottom:16px;}
-    h1 span{background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-    .hero-sub{font-size:16px;color:var(--muted);line-height:1.8;max-width:600px;margin-bottom:36px;}
-    .result-pill{display:inline-flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 24px;}
-    .result-pill .num{font-size:32px;font-weight:800;background:var(--grad-wide);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-    .result-pill .desc{font-size:13px;color:var(--muted);line-height:1.5;}
-    .content{max-width:860px;margin:0 auto;padding:0 48px 96px;}
-    .block{margin-bottom:56px;}
-    .block-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
-    .block h2{font-size:22px;font-weight:800;margin-bottom:16px;}
-    .block p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:12px;}
-    .block ul{padding-left:20px;}
-    .block li{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:6px;}
-    .block li strong{color:var(--text);}
-    .divider{height:1px;background:var(--border);margin:56px 0;}
-    .learned-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
-    .learned-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;}
-    .learned-item h4{font-size:13px;font-weight:700;color:var(--purple);margin-bottom:8px;}
-    .learned-item p{font-size:12px;color:var(--muted);line-height:1.7;}
-    @media(max-width:768px){.hero,.content{padding-left:24px;padding-right:24px;}.learned-grid{grid-template-columns:1fr;}}
-  </style>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/po.css">
+  <script>try{var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));}catch(e){}</script>
 </head>
 <body>
 
@@ -52,11 +18,11 @@
 <main>
 <div class="hero">
   <div class="case-badge">CASE 01 · XITST</div>
-  <h1>비접촉 감정 분석으로<br><span>정확도 92% 달성</span></h1>
-  <p class="hero-sub">카메라만으로 심리 상태를 측정한다. 접촉식 장비 없이 임상 수준의 정확도를 만들어낸 과정.</p>
+  <h1>카메라만으로<br><span>심리 상태를 읽는 파이프라인</span></h1>
+  <p class="hero-sub">접촉식 장비 없이 생체 신호를 추출한다. rPPG 선행 연구가 보고한 정확도를 설계 기준으로 삼아 검증한 과정.</p>
   <div class="result-pill">
     <span class="num">92%</span>
-    <span class="desc">감정 탐지 정확도<br>전통 접촉식 장비 대비</span>
+    <span class="desc">rPPG 선행 연구 보고 정확도<br>설계 목표 기준 · 접촉식 PPG는 약 98%</span>
   </div>
 </div>
 
@@ -65,7 +31,7 @@
     <div class="block-label">Context</div>
     <h2>문제: 심리 치료의 접근성</h2>
     <p>전통적인 심리 상태 측정은 전극·센서 등 접촉식 장비가 필요해 병원 방문이 필수였습니다. Xitst는 <strong>비대면으로 심리 상태를 분석</strong>하고 맞춤형 치유를 제공하는 플랫폼을 목표로 했고, 핵심 기술 문제는 "카메라만으로 신뢰할 수 있는 생체 신호를 추출할 수 있는가"였습니다.</p>
-    <p>CTO로서 제품 로드맵 설계와 함께 rPPG(Remote Photoplethysmography) 기술의 실현 가능성을 검증하고 임상 적용 수준까지 끌어올리는 것이 제 역할이었습니다.</p>
+    <p>CTO로서 제품 로드맵 설계와 함께 rPPG(Remote Photoplethysmography) 기술의 실현 가능성을 검증하고 프로덕션에 적용하는 것이 제 역할이었습니다.</p>
   </div>
   <div class="divider"></div>
   <div class="block">
@@ -75,7 +41,7 @@
       <li><strong>신호 처리 파이프라인 설계:</strong> 얼굴 영상에서 미세한 혈류 변화를 감지하는 rPPG 알고리즘 구현. 조명·움직임에 따른 노이즈를 필터링하는 신호 처리 파이프라인을 단계별로 구축.</li>
       <li><strong>TCI 심리 모델 통합:</strong> 원시 생체 신호를 TCI(기질 및 성격 검사) 모델과 결합해 감정 상태로 변환하는 데이터 통합 시스템 개발.</li>
       <li><strong>클라우드 아키텍처:</strong> 실시간 처리를 위해 AWS Lambda + API Gateway 서버리스 구조 채택. Next.js SSR로 프론트엔드 응답 속도 최적화.</li>
-      <li><strong>반복 검증:</strong> 내부 테스트 → 외부 피험자 실험 → 정확도 측정의 사이클을 반복해 92% 달성.</li>
+      <li><strong>목표 기준 설정:</strong> rPPG 선행 연구가 보고한 정확도(약 92%, 접촉식 PPG는 약 98%)를 설계 기준으로 삼고, 조명·움직임 조건별로 신호 품질을 점검하며 파이프라인을 조정.</li>
     </ul>
   </div>
   <div class="divider"></div>
@@ -83,7 +49,7 @@
     <div class="block-label">Result</div>
     <h2>결과</h2>
     <ul>
-      <li>전통 접촉식 방법 대비 <strong>92% 감정 탐지 정확도</strong> 달성</li>
+      <li>rPPG 선행 연구 보고 정확도(약 <strong>92%</strong>)를 목표로 한 신호 처리 파이프라인 구현 — 접촉식 PPG(약 98%) 대비 정확도를 내주고 비접촉이라는 접근성을 얻는 트레이드오프</li>
       <li>실시간 생체 데이터 + 심리 프로필 통합 치료용 채팅 서비스 출시</li>
       <li>확장 가능한 서버리스 인프라로 동시 사용자 처리 비용 절감</li>
     </ul>
