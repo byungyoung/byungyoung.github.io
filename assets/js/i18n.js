@@ -9,7 +9,7 @@ window.I18N = {
 
     "hero.badge":     "이직 기회를 열어두고 있습니다",
     "hero.h1":        "기획한 제품을<br>직접 만듭니다",
-    "hero.subtitle":  "고려대학교에서 컴퓨터학과 경영학을 복수전공했습니다. 개발자로 시작해 두 번 창업했고 두 곳 모두 Exit했습니다. 지금은 CURI AI에서 Voice AI 리서치 플랫폼의 Product Owner로 일합니다.",
+    "hero.subtitle":  "고려대학교에서 컴퓨터학과 경영학을 이중전공했습니다. 개발자로 시작해 두 번 창업했고 두 곳 모두 Exit했습니다. 지금은 CURI AI에서 Voice AI 리서치 플랫폼의 Product Owner로 일합니다.",
     "hero.ctaPo":     "PO 포트폴리오 보기",
     "hero.ctaResume": "이력서",
     "hero.ctaGithub": "GitHub",
@@ -50,7 +50,7 @@ window.I18N = {
     "skills.g4": "인프라 · 분석",
 
     "cred.edu":    "학력",
-    "cred.eduV":   "고려대학교 컴퓨터학 · 경영학 복수전공 (2019.03 — 2025.02)",
+    "cred.eduV":   "고려대학교 컴퓨터학 · 경영학 이중전공 (2019.03 — 2025.02)",
     "cred.cert":   "자격",
     "cred.certV":  "SQLD (2023.07) · ADsP (2023.03) · 한국데이터산업진흥원",
     "cred.lang":   "어학",
