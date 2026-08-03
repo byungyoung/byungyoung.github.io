@@ -275,7 +275,7 @@ export const home: HomeContent = {
           en: 'Non-contact emotion analysis that reads psychological state from a camera alone. Signal-processing pipeline design and TCI model integration.',
         },
         link: { ko: '케이스 스터디', en: 'Case study' },
-        href: '/po/cases/xitst.html',
+        href: '/po/cases/xitst/',
       },
       {
         id: 'lingora',
@@ -285,7 +285,7 @@ export const home: HomeContent = {
           en: 'AI English-learning platform. Located the CMS bottlenecks and simplified the content-authoring workflow.',
         },
         link: { ko: '케이스 스터디', en: 'Case study' },
-        href: '/po/cases/lingora.html',
+        href: '/po/cases/lingora/',
       },
       {
         id: 'paik',
@@ -295,7 +295,7 @@ export const home: HomeContent = {
           en: 'Brokerage platform for foreign residents. Validated demand through field interviews, built 0 to 1, then exited.',
         },
         link: { ko: '케이스 스터디', en: 'Case study' },
-        href: '/po/cases/paik.html',
+        href: '/po/cases/paik/',
       },
       {
         id: 'osof',
@@ -305,7 +305,7 @@ export const home: HomeContent = {
           en: 'Youth software-education service. Designed the curriculum and operations, ran it for two and a half years, then exited.',
         },
         link: { ko: '케이스 스터디', en: 'Case study' },
-        href: '/po/cases/osof.html',
+        href: '/po/cases/osof/',
       },
     ],
   },

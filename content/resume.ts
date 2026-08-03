@@ -42,6 +42,8 @@ export interface ResumeContent {
     backHref: string
     pdfLabel: L
     pdfGeneratingLabel: L
+    /** document.title is swapped to this before window.print() so the saved PDF is named per language */
+    pdfFileName: L
   }
   header: {
     name: string
@@ -84,6 +86,7 @@ export const resume: ResumeContent = {
     backHref: site.urls.poHome,
     pdfLabel: { ko: 'PDF 다운로드', en: 'Download PDF' },
     pdfGeneratingLabel: { ko: '생성 중…', en: 'Generating…' },
+    pdfFileName: { ko: '박병영_이력서_PO', en: 'Byungyoung_Park_PO_Resume' },
   },
 
   header: {

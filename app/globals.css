@@ -332,4 +332,65 @@
     vertical-align: super;
     color: var(--text-subtle);
   }
+
+  /* Rail-less pages (720px) keep the mobile inline treatment at every width. */
+  .doc-note--inline {
+    margin-top: 20px;
+    border-left: 2px solid var(--border-strong);
+    padding-left: 14px;
+  }
+
+  .doc-note--inline .doc-note__rule {
+    display: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 14mm 13mm;
+}
+
+@media print {
+  :root {
+    --bg: #ffffff;
+    --bg-raised: #ffffff;
+    --text: #000000;
+    --text-muted: #333333;
+    --text-subtle: #444444;
+    --text-faint: #555555;
+    --ink: #000000;
+    --border: #cccccc;
+    --border-hairline: #dddddd;
+    --border-strong: #999999;
+  }
+
+  html,
+  body {
+    background: #ffffff;
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+
+  [data-print-hide] {
+    display: none !important;
+  }
+
+  .doc-grid {
+    display: block;
+    max-width: none;
+  }
+
+  .doc-row + .doc-row {
+    margin-top: 16pt;
+  }
+
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }

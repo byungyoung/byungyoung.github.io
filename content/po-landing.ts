@@ -224,7 +224,7 @@ export const poLanding: PoLandingContent = {
           label: { ko: 'rPPG 선행 연구 보고 정확도', en: 'rPPG accuracy per prior published research' },
           comparison: { ko: '접촉식 PPG는 약 98%', en: 'contact PPG is roughly 98%' },
         },
-        href: '/po/cases/xitst.html',
+        href: '/po/cases/xitst/',
       },
       {
         slug: 'lingora',
@@ -243,7 +243,7 @@ export const poLanding: PoLandingContent = {
           label: { ko: '작업 효율 향상', en: 'Task-efficiency gain' },
           caveat: { ko: 'UX 개선 이후', en: 'after the UX improvements' },
         },
-        href: '/po/cases/lingora.html',
+        href: '/po/cases/lingora/',
       },
       {
         slug: 'paik',
@@ -258,7 +258,7 @@ export const poLanding: PoLandingContent = {
           label: { ko: '0 → 1 빌드 후', en: 'Built 0 to 1,' },
           caveat: { ko: '성공적 엑싯', en: 'then a successful exit' },
         },
-        href: '/po/cases/paik.html',
+        href: '/po/cases/paik/',
       },
       {
         slug: 'osof',
@@ -276,7 +276,7 @@ export const poLanding: PoLandingContent = {
           label: { ko: '프로그램 지속 운영', en: 'Program run continuously' },
           caveat: { ko: '커리큘럼 자체 개발', en: 'in-house curriculum' },
         },
-        href: '/po/cases/osof.html',
+        href: '/po/cases/osof/',
       },
     ],
   },
