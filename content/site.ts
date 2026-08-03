@@ -19,7 +19,6 @@ export const site = {
     canonical: 'https://byungyoung.github.io',
     github: 'https://github.com/byungyoung',
     /** Public correction record the footer links out to — origin is byungyoung/byungyoung.github.io */
-    repoCommits: 'https://github.com/byungyoung/byungyoung.github.io/commits/main',
     linkedin: 'https://www.linkedin.com/in/byungyoung',
     poHome: '/po/',
     /** Clean route (trailingSlash:true). The legacy .html deep link becomes a redirect stub in M6. */

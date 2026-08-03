@@ -8,7 +8,7 @@ import type { L } from './types'
 export interface UiContent {
   meta: { decisionLog: L; lastModified: L }
   header: { logo: string; navLabel: L; langToggle: L; langToggleAria: L }
-  footer: { correctionsHeading: L; allRecordsLink: L }
+  footer: { correctionsHeading: L }
   marginNote: { label: L; draftMarker: L }
   home: { credentialsHeading: L }
   contact: { email: L; linkedin: L; github: L }
@@ -48,10 +48,6 @@ export const ui: UiContent = {
 
   footer: {
     correctionsHeading: { ko: '이 사이트의 정정 기록', en: 'Corrections to this site' },
-    allRecordsLink: {
-      ko: '전체 기록 → GitHub commit history',
-      en: 'Full record → GitHub commit history',
-    },
   },
 
   marginNote: {

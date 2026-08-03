@@ -1,5 +1,4 @@
 import { changelog, changelogIntro } from "@/content/changelog";
-import { site } from "@/content/site";
 import { ui } from "@/content/ui";
 import type { Lang } from "@/content/types";
 import { isVisible } from "@/components/doc/draft-gate";
@@ -45,16 +44,6 @@ export function CorrectionHistory({ lang, limit }: CorrectionHistoryProps) {
         ))}
       </ol>
 
-      <p className="mt-6">
-        <a
-          href={site.urls.repoCommits}
-          rel="noreferrer"
-          target="_blank"
-          className="font-mono text-caption text-muted-foreground underline decoration-strong underline-offset-4 transition-colors hover:text-foreground hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-        >
-          {ui.footer.allRecordsLink[lang]}
-        </a>
-      </p>
     </section>
   );
 }
