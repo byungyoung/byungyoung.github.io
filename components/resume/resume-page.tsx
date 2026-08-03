@@ -5,10 +5,12 @@ import { AnchoredNotes } from "@/components/doc/anchored-notes";
 import { MetricWithCaveat } from "@/components/doc/metric-with-caveat";
 import { PdfButton } from "@/components/resume/pdf-button";
 import { SiteFooter } from "@/components/site/footer";
+import { LangToggle } from "@/components/site/lang-toggle";
 import { resume } from "@/content/resume";
 import { ui } from "@/content/ui";
 import type { Lang } from "@/content/types";
 import { formatDurationParts, formatMonthRange, totalMonths } from "@/lib/duration";
+import { localizePath } from "@/lib/paths";
 
 const CONTAINER = "max-w-[var(--container)]";
 
@@ -37,13 +39,14 @@ export function ResumePage({ lang }: ResumePageProps) {
       >
         <div className={`mx-auto flex h-14 ${CONTAINER} items-center gap-4 px-6`}>
           <Link
-            href={toolbar.backHref}
+            href={localizePath(toolbar.backHref, lang)}
             className="font-mono text-caption text-subtle underline decoration-transparent underline-offset-4 transition-colors hover:text-foreground hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
           >
             {toolbar.backLabel[lang]}
           </Link>
+          <LangToggle lang={lang} className="ms-auto" />
           <PdfButton
-            className="ms-auto dark:bg-transparent"
+            className="dark:bg-transparent"
             label={toolbar.pdfLabel[lang]}
             fileName={toolbar.pdfFileName[lang]}
           />

@@ -17,6 +17,7 @@ import { site } from "@/content/site";
 import { ui } from "@/content/ui";
 import type { CaseStudy } from "@/content/cases/types";
 import type { Lang } from "@/content/types";
+import { localizePath } from "@/lib/paths";
 
 const ROW_GAP = "64px";
 
@@ -61,7 +62,7 @@ export function CaseStudyPage({ caseStudy, lang }: CaseStudyPageProps) {
         className="mx-auto max-w-[var(--container-doc)] px-6 pt-10 pb-4 lg:px-10"
       >
         <Link
-          href={ui.caseStudy.backHref}
+          href={localizePath(ui.caseStudy.backHref, lang)}
           className="font-mono text-caption text-subtle underline decoration-transparent underline-offset-4 transition-colors hover:text-foreground hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         >
           {ui.caseStudy.backLabel[lang]}

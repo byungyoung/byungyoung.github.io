@@ -13,6 +13,7 @@ import { home } from "@/content/home";
 import { site } from "@/content/site";
 import { ui } from "@/content/ui";
 import type { Lang } from "@/content/types";
+import { localizePath } from "@/lib/paths";
 
 /**
  * Density budget (plan): main page carries 1 margin note and 2 sm EXIT stamps.
@@ -108,10 +109,14 @@ export function HomePage({ lang }: HomePageProps) {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild>
-              <Link href={hero.ctaPoHref}>{hero.ctaPo[lang]}</Link>
+              <Link href={localizePath(hero.ctaPoHref, lang)}>
+                {hero.ctaPo[lang]}
+              </Link>
             </Button>
             <Button asChild variant="outline" className="dark:bg-transparent">
-              <Link href={hero.ctaResumeHref}>{hero.ctaResume[lang]}</Link>
+              <Link href={localizePath(hero.ctaResumeHref, lang)}>
+                {hero.ctaResume[lang]}
+              </Link>
             </Button>
             <Button asChild variant="outline" className="dark:bg-transparent">
               <a href={hero.ctaGithubHref} rel="noreferrer" target="_blank">
@@ -244,7 +249,7 @@ export function HomePage({ lang }: HomePageProps) {
                     {projects.items.map((project) => (
                       <li key={project.id} className="border-b border-hairline">
                         <Link
-                          href={project.href}
+                          href={localizePath(project.href, lang)}
                           className="group grid gap-x-6 gap-y-2 py-6 sm:grid-cols-[minmax(0,1fr)_7rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                         >
                           <div>

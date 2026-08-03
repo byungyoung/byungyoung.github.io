@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { poLanding } from "@/content/po-landing";
 import { ui } from "@/content/ui";
 import type { Lang } from "@/content/types";
+import { localizePath } from "@/lib/paths";
 
 const CONTAINER = "max-w-[var(--container)]";
 
@@ -147,7 +148,7 @@ export function PoLandingPage({ lang }: PoLandingPageProps) {
               {cases.items.map((item) => (
                 <li key={item.slug} className="border-b border-hairline">
                   <Link
-                    href={item.href}
+                    href={localizePath(item.href, lang)}
                     className="group grid gap-x-6 gap-y-3 py-7 transition-colors sm:grid-cols-[minmax(0,1fr)_9rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                   >
                     <div>

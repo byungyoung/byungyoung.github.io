@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { LangToggle } from "@/components/site/lang-toggle";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ui } from "@/content/ui";
 import type { Lang } from "@/content/types";
+import { localizePath } from "@/lib/paths";
 import { cn } from "@/lib/utils";
 
 /** Section is considered active once it crosses the middle band of the viewport. */
@@ -69,7 +71,7 @@ export function SiteHeader({
     >
       <div className="mx-auto flex h-14 max-w-[var(--container-doc)] items-center gap-4 px-6 lg:px-10">
         <Link
-          href={homeHref}
+          href={localizePath(homeHref, lang)}
           className="font-mono text-h3 tracking-tight text-ink transition-opacity hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         >
           {ui.header.logo}
@@ -83,7 +85,7 @@ export function SiteHeader({
             {items.map((item) => (
               <a
                 key={item.id}
-                href={item.href}
+                href={localizePath(item.href, lang)}
                 aria-current={active === item.id ? "true" : undefined}
                 className={cn(
                   "font-mono text-label uppercase transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring",
@@ -101,21 +103,14 @@ export function SiteHeader({
         <div className="ms-auto flex items-center gap-2">
           {action ? (
             <Link
-              href={action.href}
+              href={localizePath(action.href, lang)}
               className="hidden font-mono text-label uppercase text-subtle underline decoration-transparent underline-offset-4 transition-colors hover:text-foreground hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:inline"
             >
               {action.label}
             </Link>
           ) : null}
 
-          <button
-            type="button"
-            data-lang-toggle
-            aria-label={ui.header.langToggleAria[lang]}
-            className="inline-flex h-9 items-center rounded-md border border-border px-2.5 font-mono text-label uppercase text-ink transition-colors hover:bg-raised focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-          >
-            {ui.header.langToggle[lang]}
-          </button>
+          <LangToggle lang={lang} />
 
           <ThemeToggle lang={lang} />
         </div>
