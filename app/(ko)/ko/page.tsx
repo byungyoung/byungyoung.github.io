@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { HomePage } from "@/components/home/home-page";
+import { PersonJsonLd } from "@/components/site/person-json-ld";
 import { home } from "@/content/home";
 import { localizedAlternates } from "@/lib/metadata";
 
@@ -14,5 +15,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <HomePage lang={LANG} />;
+  return (
+    <>
+      <PersonJsonLd />
+      <HomePage lang={LANG} />
+    </>
+  );
 }

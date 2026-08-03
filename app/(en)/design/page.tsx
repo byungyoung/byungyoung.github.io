@@ -14,6 +14,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 export const metadata: Metadata = {
   title: "Design system — 결정 문서",
   description: "QA surface for the Decision Log design system",
+  robots: { index: false },
 };
 
 const TYPE_SAMPLES = [

@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { SiteDocument } from "@/components/site-document";
-import { METADATA_BASE } from "@/lib/metadata";
+import { rootMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  metadataBase: METADATA_BASE,
-};
+export const metadata: Metadata = rootMetadata("ko");
 
 export default function KoRootLayout({
   children,
