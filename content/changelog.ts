@@ -46,7 +46,7 @@ export const changelog: ChangelogEntry[] = [
     date: '2026-07-30',
     commit: '4fe9ee9',
     text: {
-      ko: '게임화 요소를 전부 걷어냈다. Lv.8 스킬 바의 수치는 근거가 없었다. 같은 날 정정한 92%·85%와 같은 문제였다.',
+      ko: '게임화 요소를 전부 걷어냈다. Lv.8 스킬 바의 수치는 근거가 없었다. 같은 날 정정한 92%, 85%와 같은 문제였다.',
       en: 'Stripped out the gamification. The numbers behind the Lv.8 skill bars had no basis — the same problem as the 92% and 85% figures corrected the same day.',
     },
     status: 'approved',

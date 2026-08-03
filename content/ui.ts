@@ -78,7 +78,7 @@ export const ui: UiContent = {
       process: { ko: '과정', en: 'Process' },
       rejected: { ko: '기각한 선택지', en: 'Options I rejected' },
       result: { ko: '결과', en: 'Result' },
-      learned: { ko: '남은 것', en: 'What stayed with me' },
+      learned: { ko: '배운 것', en: 'What I learned' },
     },
   },
 

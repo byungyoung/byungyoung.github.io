@@ -128,7 +128,7 @@ export const home: HomeContent = {
       {
         id: 'curi',
         period: { ko: '2026.01 — 재직 중', en: 'Jan 2026 — Present' },
-        role: { ko: 'Product Owner · CURI AI', en: 'Product Owner · CURI AI' },
+        role: { ko: 'Product Owner — CURI AI', en: 'Product Owner — CURI AI' },
         desc: {
           ko: 'K-뷰티와 패션 B2B 고객을 위한 Voice AI 대화형 리서치 플랫폼. 자동화 인터뷰 파이프라인을 기획하고 제품 3종을 직접 개발해 출시했습니다.',
           en: 'A Voice-AI conversational research platform for B2B clients in K-Beauty and fashion. Planned the automated interview pipeline and personally built and shipped three products.',
@@ -139,7 +139,7 @@ export const home: HomeContent = {
       {
         id: 'xitst',
         period: { ko: '2025.03 — 2025.12', en: 'Mar 2025 — Dec 2025' },
-        role: { ko: 'CTO · Xitst', en: 'CTO · Xitst' },
+        role: { ko: 'CTO — Xitst', en: 'CTO — Xitst' },
         desc: {
           ko: '얼굴 영상에서 생체 신호를 추출해 감정을 추론하는 rPPG 플랫폼. 선행 연구가 보고한 정확도를 설계 기준으로 삼아 신호 처리 파이프라인을 구축했습니다.',
           en: 'An rPPG platform inferring emotional state from facial video. Built the signal-processing pipeline against the accuracy published research reports.',
@@ -151,8 +151,8 @@ export const home: HomeContent = {
         id: 'refactorworks',
         period: { ko: '2025.02 — 2025.03', en: 'Feb 2025 — Mar 2025' },
         role: {
-          ko: 'Developer Experience Manager · Refactor Works',
-          en: 'Developer Experience Manager · Refactor Works',
+          ko: 'Developer Experience Manager — Refactor Works',
+          en: 'Developer Experience Manager — Refactor Works',
         },
         desc: {
           ko: '시니어 개발자 커뮤니티를 주선하고 주 1회 밋업을 운영했습니다. 매주 그 주의 기술과 사회 이슈를 주제로 토론했고 구성원의 이직을 지원했습니다.',
@@ -164,7 +164,7 @@ export const home: HomeContent = {
       {
         id: 'lingora',
         period: { ko: '2024.09 — 2024.12', en: 'Sep 2024 — Dec 2024' },
-        role: { ko: 'Software Developer · Lingora AI', en: 'Software Developer · Lingora AI' },
+        role: { ko: 'Software Developer — Lingora AI', en: 'Software Developer — Lingora AI' },
         desc: {
           ko: 'AI 영어 학습 플랫폼의 핵심 UX 플로우를 재설계했습니다. CMS 병목 3건을 찾아 폼 필드를 40% 줄였고 작업 효율 20% 향상, 사용성 평가 85점을 얻었습니다.',
           en: 'Rebuilt core UX flows for an AI English-tutoring product. Found three CMS bottlenecks, cut form fields by 40%, lifting task efficiency 20% and scoring 85 on the usability evaluation.',
@@ -175,7 +175,7 @@ export const home: HomeContent = {
       {
         id: 'paik',
         period: { ko: '2019.06 — 2021.01', en: 'Jun 2019 — Jan 2021' },
-        role: { ko: '공동창업자 · CTO · Paik', en: 'Co-founder · CTO · Paik' },
+        role: { ko: '공동창업자 겸 CTO — Paik', en: 'Co-founder & CTO — Paik' },
         desc: {
           ko: '국내 거주 외국인 대상 부동산 중개 플랫폼을 0에서 1까지 만들었습니다. 제품 설계부터 풀스택 구현, 에이전트 리크루팅까지 맡았고 매각으로 마무리했습니다.',
           en: 'Took a real-estate brokerage platform for foreign residents in Korea from 0 to 1 — product design, full-stack build, and agent recruiting — through to a successful exit.',
@@ -186,7 +186,7 @@ export const home: HomeContent = {
       {
         id: 'osof',
         period: { ko: '2016.05 — 2018.11', en: 'May 2016 — Nov 2018' },
-        role: { ko: '공동창업자 · 대표 · OSOF', en: 'Co-founder · CEO · OSOF' },
+        role: { ko: '공동창업자 겸 대표 — OSOF', en: 'Co-founder & CEO — OSOF' },
         desc: {
           ko: '청소년 소프트웨어 교육 서비스를 2년 6개월 운영했습니다. 모객과 커리큘럼, 운영 체계를 처음부터 만들고 매각했습니다.',
           en: 'Ran a youth software-education service for two and a half years, building acquisition, curriculum, and operations from scratch before exiting.',
@@ -202,18 +202,18 @@ export const home: HomeContent = {
     groups: [
       {
         title: { ko: '프로덕트', en: 'Product' },
-        tags: ['제품 기획', '로드맵 · 우선순위', 'OKR', '애자일 실행', 'PMF 검증', 'GTM'],
+        tags: ['제품 기획', '로드맵', '우선순위 결정', 'OKR', '애자일 실행', 'PMF 검증', 'GTM'],
       },
       {
-        title: { ko: '언어 · 프레임워크', en: 'Languages & frameworks' },
+        title: { ko: '언어와 프레임워크', en: 'Languages & frameworks' },
         tags: ['TypeScript', 'Python', 'Java', 'React', 'Next.js', 'Node.js', 'FastAPI', 'Spring'],
       },
       {
-        title: { ko: 'AI · 데이터', en: 'AI & data' },
+        title: { ko: 'AI와 데이터', en: 'AI & data' },
         tags: ['LLM 제품 적용', '프롬프트 엔지니어링', 'AI 에이전트 설계', 'Voice AI', '컴퓨터 비전', 'rPPG', '모델 평가'],
       },
       {
-        title: { ko: '인프라 · 분석', en: 'Infrastructure & analytics' },
+        title: { ko: '인프라와 분석', en: 'Infrastructure & analytics' },
         tags: ['PostgreSQL', 'MySQL', 'Redis', 'Neo4j', 'AWS', 'Docker', 'CI/CD', 'SQL', 'GA4'],
       },
     ],

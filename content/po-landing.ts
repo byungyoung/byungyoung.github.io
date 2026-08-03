@@ -177,7 +177,7 @@ export const poLanding: PoLandingContent = {
         id: 'paik',
         company: { ko: 'Paik', en: 'Paik' },
         period: { ko: '2019.06 — 2021.01', en: 'Jun 2019 — Jan 2021' },
-        roleTag: { ko: '공동창업자 · CTO · Exit', en: 'Co-founder · CTO · Exit' },
+        roleTag: { ko: '공동창업자 겸 CTO — Exit', en: 'Co-founder & CTO — Exit' },
         title: { ko: '외국인 대상 부동산 중개 플랫폼', en: 'Real-estate brokerage platform for foreign residents' },
         body: {
           ko: '국내 거주 외국인과 중개 에이전트를 연결하는 플랫폼을 0에서 1까지 구축. 외국인 밀집 지역 현장 인터뷰로 수요를 검증하고, 실시간 채팅, 인증, 매물 등록을 풀스택으로 구현한 뒤 매각.',
@@ -190,7 +190,7 @@ export const poLanding: PoLandingContent = {
         id: 'osof',
         company: { ko: 'OSOF', en: 'OSOF' },
         period: { ko: '2016.05 — 2018.11', en: 'May 2016 — Nov 2018' },
-        roleTag: { ko: '공동창업자 · 대표 · Exit', en: 'Co-founder · CEO · Exit' },
+        roleTag: { ko: '공동창업자 겸 대표 — Exit', en: 'Co-founder & CEO — Exit' },
         title: { ko: '청소년 소프트웨어 교육 서비스', en: 'Youth software-education service' },
         body: {
           ko: '고객 유입, 커리큘럼, 운영 체계를 처음부터 구축해 2년 6개월 운영. 언플러그드 활동에서 스크래치를 거쳐 텍스트 코딩으로 이어지는 단계별 커리큘럼을 설계하고 매각.',

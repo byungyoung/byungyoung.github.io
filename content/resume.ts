@@ -132,18 +132,18 @@ export const resume: ResumeContent = {
     skillGroups: [
       {
         title: { ko: 'Product', en: 'Product' },
-        tags: ['제품 기획', '로드맵 · 우선순위', 'OKR', '초기 제품 구축', '애자일 실행', 'PMF 검증', 'GTM'],
+        tags: ['제품 기획', '로드맵', '우선순위 결정', 'OKR', '초기 제품 구축', '애자일 실행', 'PMF 검증', 'GTM'],
       },
       {
         title: { ko: 'Engineering', en: 'Engineering' },
         tags: ['TypeScript', 'Python', 'Java', 'React', 'Next.js', 'Node.js', 'FastAPI', 'Spring'],
       },
       {
-        title: { ko: 'AI · Data', en: 'AI · Data' },
+        title: { ko: 'AI와 데이터', en: 'AI & Data' },
         tags: ['LLM 제품 적용', '프롬프트 엔지니어링', 'AI 에이전트 설계', 'Voice AI', '컴퓨터 비전', 'rPPG', '모델 평가'],
       },
       {
-        title: { ko: 'Infra · Analytics', en: 'Infra · Analytics' },
+        title: { ko: '인프라와 분석', en: 'Infrastructure & Analytics' },
         tags: ['PostgreSQL', 'MySQL', 'Redis', 'Neo4j', 'AWS', 'Docker', 'CI/CD', 'SQL', 'GA4', 'Figma'],
       },
     ],
@@ -275,7 +275,7 @@ export const resume: ResumeContent = {
       id: 'paik',
       company: { ko: 'Paik', en: 'Paik' },
       dateRange: { start: '2019-06', end: '2021-01' },
-      role: { ko: '공동창업자 · CTO', en: 'Co-founder · CTO' },
+      role: { ko: '공동창업자 겸 CTO', en: 'Co-founder & CTO' },
       exit: true,
       bullets: {
         ko: [
@@ -298,7 +298,7 @@ export const resume: ResumeContent = {
       id: 'osof',
       company: { ko: 'OSOF', en: 'OSOF' },
       dateRange: { start: '2016-05', end: '2018-11' },
-      role: { ko: '공동창업자 · 대표', en: 'Co-founder · CEO' },
+      role: { ko: '공동창업자 겸 대표', en: 'Co-founder & CEO' },
       exit: true,
       bullets: {
         ko: [
