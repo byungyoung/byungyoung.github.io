@@ -4,43 +4,74 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio site (`byungyoung.github.io`) — a single-page application built with **zero dependencies** (no npm, no build tools, no frameworks). Pure HTML/CSS/JavaScript served directly via GitHub Pages.
+Personal portfolio site (`byungyoung.github.io`) built as a Next.js 15 static export.
+Design concept: **"결정 문서 (Decision Log)"** — the whole site is styled as the working
+document of a PO who records decisions and rejects his own work.
+
+## Stack
+
+- Next.js 15 (`output: 'export'`, `trailingSlash: true`), React 19, TypeScript strict
+- Tailwind v4 + shadcn/ui (button, badge, card, separator only)
+- pnpm, Node 24 (`.nvmrc`)
+- Deployed via GitHub Actions (`.github/workflows/deploy.yml`) → GitHub Pages
+  (Pages source is "GitHub Actions"; pushing to `main` deploys)
 
 ## Development
 
-No build step. Edit files and open `index.html` in a browser to preview. Deploy by pushing to `main` — GitHub Pages serves the root automatically.
-
-To preview locally:
 ```bash
-open index.html
-# or use any static server:
-python3 -m http.server 8000
+pnpm install
+pnpm dev          # dev server (drafts render with 검수 대기 markers)
+pnpm build        # static export to out/
+pnpm exec tsc --noEmit
 ```
+
+Port 3000 may be hijacked in Chrome by another project's service worker — use
+`pnpm exec next dev -p 3210` if pages look wrong locally.
 
 ## Architecture
 
-### Active files (the actual site)
-- `index.html` — entire SPA markup, SEO meta tags, JSON-LD schema
-- `assets/css/style.css` — all styles, CSS custom properties for dark/light theming
-- `assets/js/main.js` — theme toggle, i18n loading, IntersectionObserver animations, scroll progress bar, active nav highlighting, project card tilt effects
-- `assets/js/i18n.js` — `window.I18N` dictionary with `ko`/`en` translations keyed by `data-i18n` attribute values
+- `app/(en)/**` — English surface, NO prefix (`/`, `/po/`, `/po/resume/`, `/po/cases/[slug]/`)
+- `app/(ko)/ko/**` — Korean surface under `/ko`. Two root layouts; no top-level `app/layout.tsx`
+- Language auto-detection: blocking inline script in both layouts' `<head>`
+  (`lib/lang-detection.ts`) — localStorage choice first, then `navigator.language`,
+  redirects before paint. Toggle stores explicit choice.
+- `content/*.ts` — ALL copy lives here as typed bilingual modules (`L = Record<'ko'|'en', string>`).
+  Components never hardcode copy.
+- `components/doc/` — signature components: Stamp, MarginNote, RejectedOption,
+  ChangelogTimeline, MetricWithCaveat, SectionLabel, DocGrid, DraftGate
+- `public/po/*.html` — meta-refresh stubs preserving pre-redesign `.html` URLs
 
-### Legacy files (archived, not used by index.html)
-`/css/`, `/js/`, `/html/` directories contain old multi-page site structure. Not referenced by the current site.
+## Content Rules (hard rules — the site publicly corrects its own errors)
 
-## Key Patterns
+1. **Never invent facts, numbers, or methodology.** New claims need owner review.
+2. **Draft workflow**: content items carry `status: 'draft' | 'approved'`.
+   Drafts render in dev only (DraftGate) and are excluded from production builds.
+   Only the owner's explicit approval flips a status to `'approved'`.
+3. **No interpunct (·) enumerations** in copy or UI labels — rewrite naturally
+   (owner rule). Em-dash date ranges (`2016.05 — 2018.11`) are fine. Historical
+   quotes in the changelog keep their original wording.
+4. Owner-verified facts: OSOF was founded while in HIGH SCHOOL (2016; university
+   entry 2019.03). KU SW Volunteer Corps membership 2025.03 — 2025.12 (parallel
+   to Xitst CTO, listed under activities, not career timeline).
+5. Career durations are computed at build time from date ranges (`lib/duration.ts`)
+   — never hardcode totals.
 
-**Theming:** `data-theme` attribute on `<html>` toggles CSS variables. Persisted in `localStorage('theme')`. Falls back to `prefers-color-scheme`.
+## Design Rules
 
-**i18n:** HTML elements use `data-i18n="key.name"` attributes. `i18n.js` loads deferred, fires `I18N_READY` custom event. `main.js` listens and applies translations. Language stored in `localStorage('lang')`, defaults to `navigator.language`.
-
-**Animations:** Single IntersectionObserver instance handles both fade-in animations (`data-animate` elements) and active section detection for nav highlighting.
-
-**Accessibility:** ARIA attributes, semantic HTML, `focus-visible` states, `prefers-reduced-motion` respected. Project card tilt disabled on touch devices.
+- **Red means rejected.** The only chromatic color (`--stamp-red`) appears ONLY on
+  REJECTED stamps, rejection strikethroughs, and `fix:` tokens in the correction
+  history. Everything else is warm paper/ink monochrome.
+- Zero elevation box-shadows. No gradients. No emoji in UI copy. No card grids.
+- `--text-faint` is for decorative marks only (※, ticks) — never words (a11y).
+- Density budgets: main page max 1 margin note; case pages 3-4; resume has zero
+  stamps and zero notes.
+- Motion vocabulary is closed: fade-up reveal, stamp press (md stamps, once),
+  link underline transitions, scroll progress (case pages only). Nothing else.
+  `prefers-reduced-motion` renders final state.
 
 ## Conventions
 
-- Korean-first content with English translations via i18n keys
-- Commit messages use emoji prefixes (e.g., `:wrench: feat:`)
-- All assets under `/assets/` (css, js, Img)
-- No TypeScript, no linting, no formatting tools configured
+- Commit messages use emoji prefixes (e.g. `:wrench: feat:`)
+- Korean-first content; all factual translations reviewed by owner before deploy
+- The repo is PRIVATE — never link site visitors to repo URLs (commit history
+  links will 404 for them)
