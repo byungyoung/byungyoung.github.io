@@ -111,7 +111,7 @@ export const osof: CaseStudy = {
         ko: '코딩을 모르는 아이들에게 문법부터 가르치면 실패한다. 코드가 의미를 가지려면 개념이 먼저여야 한다. 언플러그드 활동으로 시작해 스크래치를 거쳐 텍스트 코딩으로 올라가는 순서로 뒤집었다.',
         en: "Teaching syntax first to kids who've never coded fails. For code to mean anything, the concept has to come first. We flipped the order: start with unplugged activities, move through Scratch, and only then climb to text-based coding.",
       },
-      status: 'draft',
+      status: 'approved',
       evidence: 'osof.html Learned#1 + Process#1',
     },
     {
@@ -120,7 +120,7 @@ export const osof: CaseStudy = {
         ko: '강의보다 프로젝트다. 완성된 게임과 작품을 손에 들려 보냈을 때 참여도와 재방문율이 올라갔다. 커리큘럼 전체를 프로젝트 기반 학습으로 짰다.',
         en: 'Projects beat lectures. Engagement and return rate rose when students left with a finished game or piece of work in hand. We built the entire curriculum around project-based learning.',
       },
-      status: 'draft',
+      status: 'approved',
       evidence: 'osof.html Process#2 + Learned#2',
     },
   ],

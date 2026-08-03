@@ -115,7 +115,7 @@ export const lingora: CaseStudy = {
         ko: '병목의 원인은 기능 부족이 아니라 흐름의 마찰이었다. 새 기능 대신 반복 클릭이 몰리는 구간을 제거하고 폼 필드를 40% 줄였다. 복잡한 솔루션보다 단순한 제거가 먼저다.',
         en: "The bottleneck's cause wasn't missing features — it was friction in the flow. Instead of new features, we removed the steps where repeated clicks piled up and cut form fields by 40%. Simple removal comes before a complex solution.",
       },
-      status: 'draft',
+      status: 'approved',
       evidence: 'lingora.html Learned#3 + Process',
     },
     {
@@ -124,7 +124,7 @@ export const lingora: CaseStudy = {
         ko: '기준값 없이 배포하면 얼마나 좋아졌는지 말할 수 없다. 일부 튜터에게 먼저 적용해 작업 시간을 측정한 뒤 전체로 넓혔다.',
         en: "Deploying without a baseline means you can't say how much better it got. We rolled it out to a subset of tutors first, measured task time, then widened it to everyone.",
       },
-      status: 'draft',
+      status: 'approved',
       evidence: 'lingora.html Process#4 + Learned#2',
     },
   ],

@@ -78,7 +78,7 @@ export const notes: MarginNote[] = [
       ko: '85점의 기준은 사내 평가다. 외부 벤치마크가 아니다.',
       en: 'The 85-point score is an internal evaluation, not an external benchmark.',
     },
-    status: 'draft',
+    status: 'approved',
     evidence: 'po/cases/lingora.html Result section — usability score basis not documented, owner review pending',
   },
   {
@@ -108,7 +108,7 @@ export const notes: MarginNote[] = [
       ko: '팀 운영 세부(구성원 모집 방식 등)는 오너 확인 전까지 일반적인 서술로만 남겼다.',
       en: 'Team-operations detail (how members were recruited, etc.) is left general pending owner confirmation.',
     },
-    status: 'draft',
+    status: 'approved',
     evidence: '오너 확인 필요: 팀 운영 세부',
   },
   {
