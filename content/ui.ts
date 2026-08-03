@@ -43,7 +43,7 @@ export const ui: UiContent = {
     logo: 'BY.',
     navLabel: { ko: '주요 섹션', en: 'Main sections' },
     langToggle: { ko: 'EN', en: 'KO' },
-    langToggleAria: { ko: '언어 전환', en: 'Switch language' },
+    langToggleAria: { ko: 'EN, English로 보기', en: 'KO, switch to Korean' },
   },
 
   footer: {

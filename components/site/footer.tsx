@@ -35,7 +35,7 @@ export function SiteFooter({
 
         <p
           className={cn(
-            "font-mono text-caption text-faint",
+            "font-mono text-caption text-subtle",
             corrections === "none" ? "" : "mt-14",
           )}
         >

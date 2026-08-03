@@ -45,7 +45,7 @@ function timelineEntries(lang: Lang): ChangelogEntry[] {
     body: (
       <>
         <p>{item.desc[lang]}</p>
-        <p className="mt-2 font-mono text-caption text-faint">
+        <p className="mt-2 font-mono text-caption text-subtle">
           {item.tags.join("  /  ")}
         </p>
       </>

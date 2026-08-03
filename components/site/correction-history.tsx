@@ -36,7 +36,7 @@ export function CorrectionHistory({ lang, limit }: CorrectionHistoryProps) {
             <p className="flex flex-wrap items-baseline gap-x-2 font-mono text-caption tabular-nums">
               <span className="text-subtle">{entry.date}</span>
               <span className="font-medium text-stamp">{FIX_TOKEN}</span>
-              <span className="text-faint">{entry.commit}</span>
+              <span className="text-subtle">{entry.commit}</span>
             </p>
             <p className="mt-2 text-body-sm text-muted-foreground">
               {entry.text[lang]}

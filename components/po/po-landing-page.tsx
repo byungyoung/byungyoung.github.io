@@ -129,7 +129,7 @@ export function PoLandingPage({ lang }: PoLandingPageProps) {
                   <p className="mt-2 text-body-sm text-muted-foreground">
                     {item.body[lang]}
                   </p>
-                  <p className="mt-3 font-mono text-caption text-faint">
+                  <p className="mt-3 font-mono text-caption text-subtle">
                     {item.tags.join("  /  ")}
                   </p>
                 </li>
