@@ -111,7 +111,7 @@ export const xitst: CaseStudy = {
         ko: '정확도는 약 98%로 rPPG보다 높다. 하지만 전극과 센서가 필요한 순간 "병원에 가지 않아도 되는 심리 측정"이라는 제품의 전제가 무너진다. 정확도를 내주고 카메라만으로 측정하는 접근성을 얻는 쪽을 택했다.',
         en: "It's roughly 98% accurate — higher than rPPG. But the moment electrodes and sensors are required, the product's premise — psychological measurement without a hospital visit — falls apart. We chose to give up accuracy in exchange for the accessibility of measuring with a camera alone.",
       },
-      status: 'draft',
+      status: 'approved',
       evidence: 'xitst.html Result 트레이드오프 서술 + 커밋 78507f6',
     },
     {
@@ -120,7 +120,7 @@ export const xitst: CaseStudy = {
         ko: '초기 단계에서 트래픽은 일정하지 않은데 상시 서버는 비용이 고정된다. AWS Lambda + API Gateway 서버리스로 동시 사용자 비용을 사용량에 비례시켰다.',
         en: "At an early stage, traffic isn't steady, but an always-on server has fixed cost. We used AWS Lambda + API Gateway serverless so concurrent-user cost scales with actual usage.",
       },
-      status: 'draft',
+      status: 'approved',
       evidence: 'xitst.html Process/Result 서버리스 서술 (검토 여부 확인 필요)',
     },
   ],

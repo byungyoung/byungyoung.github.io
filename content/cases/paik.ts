@@ -112,7 +112,7 @@ export const paik: CaseStudy = {
         ko: '처음 계획이 이것이었다. 거래 전 과정을 담으려던 범위를 버리고, 에이전트와 고객의 첫 연결에서 생기는 마찰 하나만 제거했다. 범위를 줄이자 오히려 초기 트랙션이 생겼다.',
         en: "This was the original plan. We dropped the scope of covering the entire transaction and removed exactly one friction point: the first connection between agent and client. Cutting the scope is what produced early traction.",
       },
-      status: 'draft',
+      status: 'approved',
       evidence: 'paik.html Process#2 + Learned#1',
     },
     {
@@ -121,7 +121,7 @@ export const paik: CaseStudy = {
         ko: '초기에는 의사결정-구현 사이클을 줄이는 무기였다. 팀이 커진 뒤에도 유지하면 병목이 된다. 위임으로 전환했다.',
         en: "Early on, this was a weapon for shortening the decision-to-implementation cycle. Keeping it up after the team grew would have made it a bottleneck, so we shifted to delegation.",
       },
-      status: 'draft',
+      status: 'approved',
       evidence: 'paik.html Learned#3 (실제 전환 여부 확인 필요)',
     },
   ],

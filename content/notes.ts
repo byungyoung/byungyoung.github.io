@@ -88,7 +88,7 @@ export const notes: MarginNote[] = [
       ko: '처음 계획은 이것보다 컸다. 줄인 게 살렸다.',
       en: 'The original plan was bigger than this. Cutting it down is what made it work.',
     },
-    status: 'draft',
+    status: 'approved',
     evidence: 'po/cases/paik.html Process#2 MVP 설계 — original scope not documented in source, owner review pending',
   },
   {
