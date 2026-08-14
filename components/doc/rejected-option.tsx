@@ -48,8 +48,8 @@ export function RejectedOption({
       </p>
       <p className="mt-1 text-body-sm text-muted-foreground">
         <span className="sr-only">{copy.reasonSr}</span>
-        <span aria-hidden className="font-mono text-subtle">
-          {copy.reasonPrefix}
+        <span aria-hidden className="mr-1.5 font-mono text-subtle">
+          {copy.reasonPrefix.trimEnd()}
         </span>
         {reason}
       </p>

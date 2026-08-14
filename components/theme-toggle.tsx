@@ -2,9 +2,36 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+
+const ICON_PROPS = {
+  "aria-hidden": true,
+  className: "size-4",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+} as const;
+
+function SunIcon() {
+  return (
+    <svg {...ICON_PROPS}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg {...ICON_PROPS}>
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+    </svg>
+  );
+}
 
 const COPY = {
   ko: {
@@ -49,9 +76,9 @@ export function ThemeToggle({ lang = "ko", className }: ThemeToggleProps) {
     >
       {mounted ? (
         isDark ? (
-          <Sun aria-hidden className="size-4" />
+          <SunIcon />
         ) : (
-          <Moon aria-hidden className="size-4" />
+          <MoonIcon />
         )
       ) : (
         <span aria-hidden className="size-4" />

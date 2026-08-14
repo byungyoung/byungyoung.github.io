@@ -13,6 +13,7 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
   variable: "--font-ibm-plex-mono",
   display: "swap",
+  preload: false,
 });
 
 type SiteDocumentProps = {
