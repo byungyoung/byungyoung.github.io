@@ -375,6 +375,11 @@
     display: none !important;
   }
 
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .doc-grid {
     display: block;
     max-width: none;

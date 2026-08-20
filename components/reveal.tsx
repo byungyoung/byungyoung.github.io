@@ -72,7 +72,7 @@ export function Reveal({ stagger = 0, children, ...props }: RevealProps) {
   }, [stagger]);
 
   return (
-    <div ref={ref} {...props}>
+    <div ref={ref} data-reveal {...props}>
       {children}
     </div>
   );

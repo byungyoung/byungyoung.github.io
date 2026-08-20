@@ -73,10 +73,10 @@ export const poLanding: PoLandingContent = {
 
   hero: {
     badge: { ko: '이직 기회를 열어두고 있습니다', en: 'Open to opportunities' },
-    titleLine1: { ko: '기술을 이해하는', en: 'A' },
+    titleLine1: { ko: '기술을 이해하는', en: `A ${site.positioningTitle.en}` },
     titleHighlight: {
       ko: `${site.positioningTitle.ko}.`,
-      en: `${site.positioningTitle.en} who understands the engineering.`,
+      en: 'who understands the engineering.',
     },
     sub: {
       ko: [
