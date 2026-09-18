@@ -22,11 +22,11 @@ export const osof: CaseStudy = {
   context: {
     ko: [
       '광주 지역 초중학생들은 소프트웨어 교육 기회가 서울에 비해 현저히 부족했습니다. 2015 개정 교육과정에서 SW 교육이 의무화되었지만 실질적인 커리큘럼과 교사 역량이 따라가지 못하고 있었습니다.',
-      '고등학생 신분으로 청소년 SW 교육 사업 OSOF를 공동 창업해 CEO로서 기획, 운영, 커리큘럼 개발을 주도했습니다. 운영 과정에서 파생 제품으로 IoT 도난방지 장치를 개발했고, 창업경진대회에서 지역 우승했습니다. 이후 2018년에 사업과 지분을 매각했습니다.',
+      '고등학생 신분으로 청소년 SW 교육 사업 OSOF를 공동 창업해 CEO로서 기획, 운영, 커리큘럼 개발을 주도했습니다. 교육 사업과 별개로 자체 제품 라인도 운영했습니다. IoT 도난방지 장치를 하드웨어부터 제어 앱까지 직접 만들어 2016년 창업경진대회 Company Of the Year 부스에서 시연·판매했고 지역대회에서 우승했습니다. 특허는 제품화 전에 출원해 등록까지 마친 뒤 매각했고, 사업과 지분은 2018년에 매각했습니다.',
     ],
     en: [
       'Middle- and elementary-school students in Gwangju had markedly fewer software-education opportunities than students in Seoul. The 2015 revised curriculum made SW education mandatory, but the actual curricula and teacher capability hadn\'t caught up.',
-      'While still a high school student, I co-founded OSOF, a youth software-education business, and led planning, operations, and curriculum development as CEO. Along the way we developed an IoT anti-theft device as a spin-off product and won regionally at a startup competition. Sold the business and my equity in 2018.',
+      'While still a high school student, I co-founded OSOF, a youth software-education business, and led planning, operations, and curriculum development as CEO. We also ran a product line of our own: an IoT anti-theft device I built end to end, from the board to the Android app that drove it. We demoed and sold it from our booth at the 2016 Company Of the Year startup competition and took the regional win. The patent was filed before the product shipped, saw it through to grant, then sold. Sold the business and my equity in 2018.',
     ],
   },
   process: {
@@ -40,8 +40,8 @@ export const osof: CaseStudy = {
         body: '강의식 교육 대신 학생이 직접 결과물을 만드는 프로젝트 기반 학습(PBL) 방식 적용. 게임, 애니메이션 등 학생 관심사와 연결.',
       },
       {
-        title: 'IoT 확장',
-        body: '심화 과정으로 아두이노 기반 도난방지 장치 제작 프로젝트 추가. 하드웨어-소프트웨어 연결 경험 제공.',
+        title: '제품 개발',
+        body: '블루투스·WiFi 아두이노 나노로 시제품을 만든 뒤 PCB를 직접 설계. 제어용 안드로이드 앱을 Play 스토어에 출시해 기기와 묶어 판매. 직접 만들어 팔아본 뒤에야 그 과정을 심화 커리큘럼으로 옮겼다.',
       },
       {
         title: '팀 운영',
@@ -58,8 +58,8 @@ export const osof: CaseStudy = {
         body: 'Applied project-based learning (PBL), where students build their own output, instead of lecture-style teaching. Connected projects to student interests like games and animation.',
       },
       {
-        title: 'IoT extension',
-        body: 'Added an Arduino-based anti-theft-device project as an advanced track, giving students hands-on hardware-software integration experience.',
+        title: 'Product development',
+        body: 'Prototyped on a Bluetooth/WiFi Arduino Nano, then designed the PCB myself. Published the companion Android app on Google Play and sold it bundled with the device. Only after shipping and selling it did the build become an advanced course.',
       },
       {
         title: 'Team operations',

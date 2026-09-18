@@ -166,6 +166,10 @@ export const resume: ResumeContent = {
     },
     awards: [
       {
+        name: { ko: '창업경진대회 지역대회 우승', en: 'Startup competition, regional winner' },
+        sub: { ko: 'Company Of the Year · 2016', en: 'Company Of the Year · 2016' },
+      },
+      {
         name: { ko: '전국 로봇 대회 1위', en: 'National Robotics Competition, 1st place' },
         sub: { ko: 'FIRST Tech Challenge', en: 'FIRST Tech Challenge' },
       },
@@ -304,12 +308,16 @@ export const resume: ResumeContent = {
         ko: [
           '청소년 대상 소프트웨어 교육 서비스. 고객 유입, 커리큘럼, 운영 체계를 처음부터 구축해 2년 6개월 운영',
           '컴퓨팅 사고력 중심의 단계별 커리큘럼 설계 — 언플러그드 활동에서 스크래치를 거쳐 텍스트 코딩으로 이어지는 구성에 프로젝트 기반 학습 적용',
-          '아두이노 기반 IoT 도난방지 장치 제작 심화 과정 개발',
+          'IoT 도난방지 장치를 하드웨어부터 제어 앱까지 직접 개발 — 아두이노 나노 시제품 후 PCB 직접 설계, 안드로이드 앱을 Play 스토어 출시',
+          '2016년 창업경진대회 Company Of the Year 부스에서 시연·판매, 지역대회 우승. 특허는 제품화 전 출원해 등록 후 매각',
+          '직접 만들어 팔아본 뒤 그 제작 과정을 심화 커리큘럼으로 전환',
         ],
         en: [
           'A software-education service for teenagers. Built acquisition, curriculum, and operations from scratch and ran it for two and a half years',
           'Designed a staged curriculum centered on computational thinking — applied project-based learning across a progression from unplugged activities through Scratch to text-based coding',
-          'Developed an advanced track building an Arduino-based IoT anti-theft device',
+          'Built an IoT anti-theft device end to end — Arduino Nano prototype, my own PCB design, and a companion Android app on Google Play',
+          'Demoed and sold it from our booth at the 2016 Company Of the Year startup competition, taking the regional win; patent filed before shipping, granted, then sold',
+          'Turned the build into an advanced course only after shipping and selling it',
         ],
       },
     },
