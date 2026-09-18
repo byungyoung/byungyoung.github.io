@@ -26,19 +26,19 @@ const stampVariants = cva(
 );
 
 const STAMP_TEXT = {
-  exit: "EXIT",
+  exit: "ACQUIRED",
   approved: "APPROVED",
   rejected: "REJECTED",
 } as const;
 
 const STAMP_ARIA = {
   ko: {
-    exit: "상태: 종료됨",
+    exit: "상태: 매각됨",
     approved: "상태: 승인됨",
     rejected: "상태: 기각됨",
   },
   en: {
-    exit: "Status: Exited",
+    exit: "Status: Acquired",
     approved: "Status: Approved",
     rejected: "Status: Rejected",
   },

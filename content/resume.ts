@@ -76,8 +76,8 @@ export const resume: ResumeContent = {
       en: `${site.nameEn} Résumé ${site.titleSeparator} ${site.positioningTitle.en}`,
     },
     description: {
-      ko: `${site.name} 이력서 — ${site.positioningTitle.ko}, 창업 2회 및 Exit 2회.`,
-      en: `${site.nameEn} résumé — ${site.positioningTitle.en}, two startups founded, two exits.`,
+      ko: `${site.name} 이력서 — ${site.positioningTitle.ko}, 창업 2회, 두 곳 모두 지분 매각.`,
+      en: `${site.nameEn} résumé — ${site.positioningTitle.en}, two startups founded, both acquired.`,
     },
   },
 
@@ -93,8 +93,8 @@ export const resume: ResumeContent = {
     name: site.name,
     title: site.positioningTitle,
     tagline: {
-      ko: '기획한 제품을 직접 만듭니다. 두 번 창업해 두 곳 모두 Exit했고, 그중 한 곳과 이후 한 곳에서 CTO로 엔지니어링을 총괄했습니다.',
-      en: 'I build the products I spec. I founded two companies and exited both, and served as CTO leading engineering at one of them and again afterward at another.',
+      ko: '기획한 제품을 직접 만듭니다. 두 번 창업해 두 곳 모두 지분을 매각했고, 그중 한 곳과 이후 한 곳에서 CTO로 엔지니어링을 총괄했습니다.',
+      en: 'I build the products I spec. I founded two companies and both were acquired, and served as CTO leading engineering at one of them and again afterward at another.',
     },
     email: site.email,
     linkedin: site.urls.linkedin,
@@ -117,7 +117,7 @@ export const resume: ResumeContent = {
 
   totalExperienceMetric: {
     label: { ko: '총 경력', en: 'Total experience' },
-    caveat: { ko: '창업 2회, Exit 2회 포함', en: 'includes 2 startups founded, 2 exits' },
+    caveat: { ko: '창업 2회, 매각 2회 포함', en: 'includes 2 startups founded, both acquired' },
   },
 
   presentLabel: { ko: '재직 중', en: 'Present' },
