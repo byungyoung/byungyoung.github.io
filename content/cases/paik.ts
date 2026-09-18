@@ -5,18 +5,18 @@ export const paik: CaseStudy = {
   num: '03',
   name: 'Paik',
   title: {
-    ko: ['외국인 부동산 플랫폼', '0 → 1, 그리고 Exit'],
-    en: ['A real-estate platform for foreign residents:', '0 to 1, then exit'],
+    ko: ['외국인 부동산 플랫폼', '0 → 1, 그리고 지분 매각'],
+    en: ['A real-estate platform for foreign residents:', '0 to 1, then acquired'],
   },
   heroSub: {
-    ko: '아무도 만들지 않은 시장을 직접 만들었다. 언어 장벽이 만든 기회를 포착해 플랫폼을 0에서 구축하고 Exit까지.',
-    en: 'I built a market no one else had. Caught the opportunity the language barrier created, built the platform from 0, and took it through to exit.',
+    ko: '아무도 만들지 않은 시장을 직접 만들었다. 언어 장벽이 만든 기회를 포착해 플랫폼을 0에서 구축했고 지분을 매각했다.',
+    en: 'I built a market no one else had. Caught the opportunity the language barrier created, built the platform from 0, and sold my equity.',
   },
   metrics: [
     {
-      value: 'Exit',
+      value: '매각',
       label: { ko: '0 → 1 빌드 후', en: 'Built 0 to 1,' },
-      caveat: { ko: '성공적 엑싯 달성', en: 'then a successful exit' },
+      caveat: { ko: '2021년 지분 매각', en: 'equity sold in 2021' },
     },
   ],
   context: {
@@ -71,12 +71,12 @@ export const paik: CaseStudy = {
     ko: [
       '외국인-에이전트 연결 플랫폼 0 → 1 구축 및 운영',
       '실시간 채팅과 알림 시스템을 포함한 풀스택 플랫폼 1년 7개월 운영',
-      '성공적 Exit 달성',
+      '2021년 지분 매각, 팀과 서비스는 인수사로 이관',
     ],
     en: [
       'Built and ran a foreign-resident-to-agent matching platform from 0 to 1',
       'Ran the full-stack platform, including real-time chat and notifications, for one year and seven months',
-      'Reached a successful exit',
+      'Sold my equity in 2021; team and service absorbed by the acquirer',
     ],
   },
   learned: [
@@ -128,8 +128,8 @@ export const paik: CaseStudy = {
   translationStatus: 'draft',
   meta: {
     description: {
-      ko: '외국인 대상 부동산 중개 플랫폼을 0에서 1까지 만들고 Exit한 케이스 스터디.',
-      en: 'Case study: building a real-estate brokerage platform for foreign residents from 0 to 1, through to exit.',
+      ko: '외국인 대상 부동산 중개 플랫폼을 0에서 1까지 만들고 지분을 매각한 케이스 스터디.',
+      en: 'Case study: building a real-estate brokerage platform for foreign residents from 0 to 1, then sold my equity.',
     },
   },
 }

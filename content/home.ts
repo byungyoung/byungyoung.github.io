@@ -66,8 +66,8 @@ export const home: HomeContent = {
       en: `${site.nameEn} ${site.titleSeparator} ${site.positioningTitle.en}`,
     },
     description: {
-      ko: '기획한 제품을 직접 만드는 Technical Product Owner. 두 번의 창업 Exit, rPPG 감정 분석 플랫폼 CTO, 현재 CURI AI.',
-      en: 'A Technical Product Owner who builds the products they spec. Two startups, two exits; CTO of an rPPG emotion-analysis platform; now at CURI AI.',
+      ko: '기획한 제품을 직접 만드는 Technical Product Owner. 창업 2회·매각 2회, rPPG 감정 분석 플랫폼 CTO, 현재 CURI AI.',
+      en: 'A Technical Product Owner who builds the products they spec. Two startups, both acquired; CTO of an rPPG emotion-analysis platform; now at CURI AI.',
     },
   },
 
@@ -88,8 +88,8 @@ export const home: HomeContent = {
       en: ['I build the products', 'I spec'],
     },
     subtitle: {
-      ko: '고려대학교에서 컴퓨터학과 경영학을 이중전공했습니다. 개발자로 시작해 두 번 창업했고 두 곳 모두 Exit했습니다. 지금은 CURI AI에서 Voice AI 리서치 플랫폼의 Product Owner로 일합니다.',
-      en: 'Computer Science and Business at Korea University. Started as a developer, founded two companies and exited both. Now Product Owner at CURI AI, building a Voice-AI research platform.',
+      ko: '고려대학교에서 컴퓨터학과 경영학을 이중전공했습니다. 개발자로 시작해 두 번 창업했고 두 곳 모두 지분을 매각했습니다. 지금은 CURI AI에서 Voice AI 리서치 플랫폼의 Product Owner로 일합니다.',
+      en: 'Computer Science and Business at Korea University. Started as a developer, founded two companies and both were acquired. Now Product Owner at CURI AI, building a Voice-AI research platform.',
     },
     ctaPo: { ko: 'PO 포트폴리오 보기', en: 'View PO portfolio' },
     ctaPoHref: site.urls.poHome,
@@ -123,7 +123,7 @@ export const home: HomeContent = {
 
   experience: {
     heading: { ko: '경력', en: 'Experience' },
-    exitLabel: { ko: 'Exit', en: 'Exit' },
+    exitLabel: { ko: '매각', en: 'Acquired' },
     items: [
       {
         id: 'curi',
@@ -178,7 +178,7 @@ export const home: HomeContent = {
         role: { ko: '공동창업자 겸 CTO — Paik', en: 'Co-founder & CTO — Paik' },
         desc: {
           ko: '국내 거주 외국인 대상 부동산 중개 플랫폼을 0에서 1까지 만들었습니다. 제품 설계부터 풀스택 구현, 에이전트 리크루팅까지 맡았고 매각으로 마무리했습니다.',
-          en: 'Took a real-estate brokerage platform for foreign residents in Korea from 0 to 1 — product design, full-stack build, and agent recruiting — through to a successful exit.',
+          en: 'Took a real-estate brokerage platform for foreign residents in Korea from 0 to 1 — product design, full-stack build, and agent recruiting. Sold my equity in 2021.',
         },
         tags: ['Fullstack', 'WebSocket', 'MySQL'],
         exit: true,
@@ -189,7 +189,7 @@ export const home: HomeContent = {
         role: { ko: '공동창업자 겸 대표 — OSOF', en: 'Co-founder & CEO — OSOF' },
         desc: {
           ko: '청소년 소프트웨어 교육 서비스를 2년 6개월 운영했습니다. 모객과 커리큘럼, 운영 체계를 처음부터 만들고 매각했습니다.',
-          en: 'Ran a youth software-education service for two and a half years, building acquisition, curriculum, and operations from scratch before exiting.',
+          en: 'Ran a youth software-education service for two and a half years, building acquisition, curriculum, and operations from scratch. Sold the business and my equity in 2018.',
         },
         tags: ['EdTech', 'Operations'],
         exit: true,
@@ -291,8 +291,8 @@ export const home: HomeContent = {
         id: 'paik',
         name: { ko: 'Paik 부동산 플랫폼', en: 'Paik real-estate platform' },
         desc: {
-          ko: '외국인 대상 부동산 중개 플랫폼. 현장 인터뷰로 수요를 검증하고 0에서 1까지 만든 뒤 Exit.',
-          en: 'Brokerage platform for foreign residents. Validated demand through field interviews, built 0 to 1, then exited.',
+          ko: '외국인 대상 부동산 중개 플랫폼. 현장 인터뷰로 수요를 검증하고 0에서 1까지 만든 뒤 지분 매각.',
+          en: 'Brokerage platform for foreign residents. Validated demand through field interviews, built 0 to 1, then sold my equity.',
         },
         link: { ko: '케이스 스터디', en: 'Case study' },
         href: '/po/cases/paik/',
@@ -301,8 +301,8 @@ export const home: HomeContent = {
         id: 'osof',
         name: { ko: 'OSOF SW 교육', en: 'OSOF software education' },
         desc: {
-          ko: '청소년 소프트웨어 교육 서비스. 커리큘럼과 운영을 직접 설계해 2년 6개월 운영 후 Exit.',
-          en: 'Youth software-education service. Designed the curriculum and operations, ran it for two and a half years, then exited.',
+          ko: '청소년 소프트웨어 교육 서비스. 커리큘럼과 운영을 직접 설계해 2년 6개월 운영 후 사업·지분 매각.',
+          en: 'Youth software-education service. Designed the curriculum and operations, ran it for two and a half years, then sold the business.',
         },
         link: { ko: '케이스 스터디', en: 'Case study' },
         href: '/po/cases/osof/',

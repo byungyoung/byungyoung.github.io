@@ -22,11 +22,11 @@ export const osof: CaseStudy = {
   context: {
     ko: [
       '광주 지역 초중학생들은 소프트웨어 교육 기회가 서울에 비해 현저히 부족했습니다. 2015 개정 교육과정에서 SW 교육이 의무화되었지만 실질적인 커리큘럼과 교사 역량이 따라가지 못하고 있었습니다.',
-      '고등학생 신분으로 청소년 SW 교육 사업 OSOF를 공동 창업해 CEO로서 기획, 운영, 커리큘럼 개발을 주도했습니다. 운영 과정에서 파생 제품으로 IoT 도난방지 장치를 개발했고, 창업경진대회에서 지역 우승했습니다. 이후 사업을 매각하며 Exit했습니다.',
+      '고등학생 신분으로 청소년 SW 교육 사업 OSOF를 공동 창업해 CEO로서 기획, 운영, 커리큘럼 개발을 주도했습니다. 운영 과정에서 파생 제품으로 IoT 도난방지 장치를 개발했고, 창업경진대회에서 지역 우승했습니다. 이후 2018년에 사업과 지분을 매각했습니다.',
     ],
     en: [
       'Middle- and elementary-school students in Gwangju had markedly fewer software-education opportunities than students in Seoul. The 2015 revised curriculum made SW education mandatory, but the actual curricula and teacher capability hadn\'t caught up.',
-      'While still a high school student, I co-founded OSOF, a youth software-education business, and led planning, operations, and curriculum development as CEO. Along the way we developed an IoT anti-theft device as a spin-off product and won regionally at a startup competition. The business was later sold — an exit.',
+      'While still a high school student, I co-founded OSOF, a youth software-education business, and led planning, operations, and curriculum development as CEO. Along the way we developed an IoT anti-theft device as a spin-off product and won regionally at a startup competition. Sold the business and my equity in 2018.',
     ],
   },
   process: {
@@ -72,13 +72,13 @@ export const osof: CaseStudy = {
       '초중학생 대상 SW 교육 프로그램 2년 6개월 지속 운영',
       '자체 개발 커리큘럼으로 컴퓨팅 사고력 + 기초 코딩 교육 제공',
       'IoT 심화 과정 추가로 하드웨어-소프트웨어 연계 경험 제공',
-      '성공적 Exit — 이후 지역 교육 기관에 커리큘럼 이관',
+      '2018년 사업·지분 매각 — 이후 지역 교육 기관에 커리큘럼 이관',
     ],
     en: [
       'Ran a software-education program for middle- and elementary-school students continuously for two and a half years',
       'Delivered computational-thinking and foundational coding education with an in-house curriculum',
       'Added an advanced IoT track, giving students hardware-software integration experience',
-      'Reached a successful exit — the curriculum was later transferred to a regional education institution',
+      'Sold the business and my equity in 2018 — the curriculum was later transferred to a regional education institution',
     ],
   },
   learned: [
@@ -127,8 +127,8 @@ export const osof: CaseStudy = {
   translationStatus: 'draft',
   meta: {
     description: {
-      ko: '청소년 소프트웨어 교육 서비스를 2년 6개월 운영하고 Exit한 케이스 스터디.',
-      en: 'Case study: running a youth software-education service for two and a half years, through to exit.',
+      ko: '청소년 소프트웨어 교육 서비스를 2년 6개월 운영하고 사업을 매각한 케이스 스터디.',
+      en: 'Case study: running a youth software-education service for two and a half years, then selling the business.',
     },
   },
 }
