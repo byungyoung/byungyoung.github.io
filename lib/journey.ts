@@ -3,6 +3,7 @@ import { cases } from "@/content/cases";
 import type { CaseSlug } from "@/content/cases/types";
 import { journey, MILITARY_PLACE_ID, placeStaging, type LandmarkKind } from "@/content/journey";
 import { resume, type ResumeExperienceEntry } from "@/content/resume";
+import { shotsByPlace, type Shot } from "@/content/shots";
 import { site } from "@/content/site";
 import type { Lang } from "@/content/types";
 import { formatDuration, formatMonthRange, monthsBetween, totalMonths } from "@/lib/duration";
@@ -77,6 +78,7 @@ export interface PlaceView {
   sky: [string, string];
   trophies: { title: string; sub: string }[];
   caseStudy: CaseView | null;
+  shots: Shot[];
   pageHref: string;
 }
 
@@ -135,6 +137,7 @@ function experiencePlace(entry: ResumeExperienceEntry, lang: Lang): Omit<PlaceVi
     current: entry.dateRange.end === null,
     ...staging(entry.id, lang),
     caseStudy,
+    shots: shotsByPlace[entry.id] ?? [],
     pageHref: localizePath(caseStudy ? questPath(caseStudy.slug) : SITE_PATHS.resume, lang),
   };
 }
@@ -163,6 +166,7 @@ function militaryPlace(lang: Lang): Omit<PlaceView, "index"> {
     current: false,
     ...staging(MILITARY_PLACE_ID, lang),
     caseStudy: null,
+    shots: [],
     pageHref: localizePath(SITE_PATHS.resume, lang),
   };
 }

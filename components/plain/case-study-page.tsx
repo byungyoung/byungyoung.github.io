@@ -7,6 +7,8 @@ import { MetricWithCaveat } from "@/components/doc/metric-with-caveat";
 import { SiteFooter } from "@/components/site/footer";
 import { LangToggle } from "@/components/site/lang-toggle";
 import type { CaseStudy } from "@/content/cases/types";
+import { ShotGallery } from "@/components/doc/shot-gallery";
+import { shotsByPlace } from "@/content/shots";
 import { journey } from "@/content/journey";
 import type { Lang } from "@/content/types";
 import { SITE_PATHS } from "@/lib/journey";
@@ -73,6 +75,7 @@ export function CaseStudyPage({ caseStudy, lang }: CaseStudyPageProps) {
             />
           ))}
         </div>
+        <ShotGallery shots={shotsByPlace[caseStudy.slug] ?? []} lang={lang} className="mt-6" />
 
         <Section title={copy.sections.context[lang]}>
           <div className="space-y-5">

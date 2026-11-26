@@ -31,6 +31,7 @@ export interface ResumeExperienceEntry {
 export interface ComputedMetric {
   label: L
   caveat?: L
+  display: Record<Lang, { value: string; unit: string }>
 }
 
 export interface SkillGroup {
@@ -151,6 +152,10 @@ export const resume: ResumeContent = {
 
   totalExperienceMetric: {
     label: { ko: '총 경력', en: 'Total experience' },
+    display: {
+      ko: { value: '약 5', unit: '년 9개월' },
+      en: { value: 'about 5', unit: ' years 9 months' },
+    },
     caveat: { ko: '창업 2회, 매각 2회 포함', en: 'includes 2 companies founded, both acquired' },
   },
 

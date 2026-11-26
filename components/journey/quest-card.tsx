@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { ReactNode, RefObject } from "react";
 
+import { ShotGallery } from "@/components/doc/shot-gallery";
 import { journey } from "@/content/journey";
 import type { Lang } from "@/content/types";
 import type { MetricView, PlaceView } from "@/lib/journey";
@@ -49,6 +50,7 @@ function PageBody({ id, place, lang }: { id: PageId; place: PlaceView; lang: Lan
     record: () => (
       <>
         {place.summary ? <p className="j-lead">{place.summary}</p> : null}
+        <ShotGallery shots={place.shots} lang={lang} />
         <ul className="j-list">
           {place.bullets.map((bullet) => (
             <li key={bullet}>{bullet}</li>

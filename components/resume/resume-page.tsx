@@ -3,12 +3,14 @@ import type { ReactNode } from "react";
 
 import { AnchoredNotes } from "@/components/doc/anchored-notes";
 import { MetricWithCaveat } from "@/components/doc/metric-with-caveat";
+import { ShotGallery } from "@/components/doc/shot-gallery";
+import { shotsByPlace } from "@/content/shots";
 import { SiteFooter } from "@/components/site/footer";
 import { LangToggle } from "@/components/site/lang-toggle";
 import { resume } from "@/content/resume";
 import { ui } from "@/content/ui";
 import type { Lang } from "@/content/types";
-import { formatDurationParts, formatMonthRange, totalMonths } from "@/lib/duration";
+import { formatMonthRange } from "@/lib/duration";
 import { cases } from "@/content/cases";
 import { journey } from "@/content/journey";
 import { PDF_FILES, questPath, SITE_PATHS } from "@/lib/journey";
@@ -32,8 +34,7 @@ export function ResumePage({ lang }: ResumePageProps) {
     resume;
   const sections = ui.resume.sections;
 
-  const months = totalMonths(resume.experience.map((entry) => entry.dateRange));
-  const total = formatDurationParts(months, lang);
+  const total = totalExperienceMetric.display[lang];
 
   return (
     <>
@@ -247,6 +248,7 @@ export function ResumePage({ lang }: ResumePageProps) {
                       </li>
                     ))}
                   </ul>
+                  <ShotGallery shots={shotsByPlace[entry.id] ?? []} lang={lang} />
                 </li>
               ))}
             </ol>

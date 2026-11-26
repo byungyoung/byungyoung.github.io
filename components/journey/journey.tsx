@@ -272,6 +272,7 @@ export function Journey({ lang, places, totalMonths, patchNotes }: JourneyProps)
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.altKey || event.ctrlKey || event.metaKey || characterOpen || phase === "clear" || phase === "ending") return;
+      if ((event.target as HTMLElement | null)?.closest?.(".shot-dialog")) return;
       const inCard = (event.target as HTMLElement | null)?.closest?.(".j-card");
       if (phase === "title") return;
 

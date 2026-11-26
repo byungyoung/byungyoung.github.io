@@ -278,3 +278,74 @@
     color: inherit;
   }
 }
+
+.shot-gallery {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0 4px;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+}
+
+.shot-gallery li {
+  flex: 0 0 min(80%, 320px);
+  scroll-snap-align: start;
+}
+
+.shot-gallery__btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgb(0 0 0 / 0.14);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.shot-gallery__btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.shot-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.shot-dialog {
+  max-width: min(96vw, 1440px);
+  max-height: 94vh;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: #fff;
+  overflow: auto;
+}
+
+.shot-dialog::backdrop {
+  background: rgb(20 18 14 / 0.72);
+}
+
+.shot-dialog img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.shot-dialog__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgb(0 0 0 / 0.2);
+  background: #fff;
+  font-size: 13px;
+  z-index: 1;
+}
