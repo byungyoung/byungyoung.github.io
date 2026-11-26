@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-import { home } from "@/content/home";
+import { resume } from "@/content/resume";
 import { site } from "@/content/site";
 import type { Lang } from "@/content/types";
 import { OG_FONT_FAMILY, loadOgFonts } from "@/lib/og-fonts";
@@ -8,18 +8,20 @@ import { OG_FONT_FAMILY, loadOgFonts } from "@/lib/og-fonts";
 export const OG_SIZE = { width: 1200, height: 630 } as const;
 export const OG_CONTENT_TYPE = "image/png";
 
-/** Paper/ink tokens, hardcoded because satori cannot resolve CSS variables. */
-const PAPER = "#FCFBF9";
-const INK = "#1D1B18";
-const SUBTLE = "#757169";
-const HAIRLINE = "#D8D5CF";
+/** Journey dawn tokens (app/journey/scene.css), hardcoded because satori cannot resolve CSS variables. */
+const PAPER = "#F4DCC0";
+const PAPER_LOW = "#DFE3E6";
+const INK = "#26241F";
+const SUBTLE = "#6E685E";
+const HAIRLINE = "#CBBFAE";
+const ACCENT = "#8F5C12";
 
-const EYEBROW = "DECISION LOG";
+const EYEBROW = "A CAREER JOURNEY";
 const DOMAIN = "byungyoung.github.io";
 
-/** The card headline is the hero H1 verbatim, so the two can never drift. */
+/** The card headline is the résumé headline verbatim, so the two can never drift. */
 export function ogHeadline(lang: Lang): string {
-  return home.hero.h1[lang].join(" ");
+  return resume.header.headline[lang];
 }
 
 export function ogNameLine(lang: Lang): string {
@@ -44,6 +46,7 @@ export async function renderOgImage(lang: Lang): Promise<ImageResponse> {
           flexDirection: "column",
           justifyContent: "space-between",
           backgroundColor: PAPER,
+          backgroundImage: `linear-gradient(180deg, ${PAPER}, ${PAPER_LOW})`,
           padding: "64px 80px",
           fontFamily: OG_FONT_FAMILY,
         }}
@@ -55,7 +58,7 @@ export async function renderOgImage(lang: Lang): Promise<ImageResponse> {
               fontSize: 22,
               fontWeight: 600,
               letterSpacing: 7,
-              color: SUBTLE,
+              color: ACCENT,
             }}
           >
             {EYEBROW}

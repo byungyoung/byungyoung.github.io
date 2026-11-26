@@ -1,0 +1,429 @@
+/*
+ * Journey scene: sky, camera, world motion. Owner direction 2026-11-27: one
+ * calm full-screen scene, no page scroll, small satisfying motions (paths
+ * assembling, a bridge sliding in, doors opening). Original world: the day
+ * moves from dawn (2016) to night (now) as the traveler walks.
+ *
+ * Unlayered on purpose so these rules win over Tailwind utilities on shared
+ * components (language and theme toggles) used inside the HUD.
+ */
+
+@property --sky-top {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f4dcc0;
+}
+
+@property --sky-bottom {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #dfe3e6;
+}
+
+html:has(.journey),
+html:has(.journey) body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.journey {
+  --j-ink: #26241f;
+  --j-muted: #554f46;
+  --j-subtle: #6e685e;
+  --j-card: rgba(252, 249, 243, 0.94);
+  --j-card-solid: #fcf9f3;
+  --j-line: rgba(38, 36, 31, 0.12);
+  --j-accent: #e0a148;
+  --j-accent-strong: #8f5c12;
+  --j-on-accent: #241a0a;
+  --j-shadow: 0 18px 48px -18px rgba(40, 34, 24, 0.42);
+  --j-ease: cubic-bezier(0.45, 0, 0.25, 1);
+  --j-spring: cubic-bezier(0.2, 1.35, 0.4, 1);
+
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  color: var(--j-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+html[lang="ko"] .journey {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.journey :focus-visible {
+  outline: 3px solid var(--j-accent);
+  outline-offset: 3px;
+}
+
+.j-scene {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+  transition:
+    --sky-top 1.2s var(--j-ease),
+    --sky-bottom 1.2s var(--j-ease);
+  touch-action: none;
+  user-select: none;
+}
+
+.j-stars {
+  position: absolute;
+  inset: 0 0 40% 0;
+  opacity: 0;
+  transition: opacity 1.4s var(--j-ease);
+  background-image:
+    radial-gradient(1.4px 1.4px at 8% 18%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 22% 32%, #fff, transparent),
+    radial-gradient(1.6px 1.6px at 37% 12%, #fff, transparent),
+    radial-gradient(1.1px 1.1px at 51% 26%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 64% 9%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 78% 30%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 90% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 70% 44%, #fff, transparent);
+}
+
+.journey[data-night] .j-stars {
+  opacity: 0.85;
+}
+
+.j-clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition-property: transform;
+  transition-timing-function: var(--j-ease);
+}
+
+.j-clouds span {
+  position: absolute;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  filter: blur(14px);
+  animation: j-drift 22s ease-in-out infinite alternate;
+  transition: opacity 1.2s var(--j-ease);
+}
+
+.j-clouds span:nth-child(1) {
+  top: 44%;
+  left: 4%;
+  width: 150px;
+}
+
+.j-clouds span:nth-child(2) {
+  top: 56%;
+  left: 62%;
+  width: 210px;
+  animation-delay: -8s;
+}
+
+.j-clouds span:nth-child(3) {
+  top: 36%;
+  left: 120%;
+  width: 200px;
+  animation-delay: -14s;
+}
+
+.journey[data-night] .j-clouds span {
+  opacity: 0.12;
+}
+
+.j-camera {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  transition-property: transform, opacity;
+  transition-timing-function: var(--j-ease);
+  will-change: transform;
+}
+
+.journey:not([data-ready]) .j-camera {
+  opacity: 0;
+}
+
+.j-world {
+  display: block;
+  overflow: visible;
+}
+
+/* ---------- world motion ---------- */
+
+.j-ghost polygon {
+  fill: none;
+  stroke: rgba(60, 52, 40, 0.3);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.journey[data-night] .j-ghost polygon {
+  stroke: rgba(241, 236, 226, 0.3);
+}
+
+.j-tile {
+  opacity: 0;
+  transform: translateY(46px);
+  transition:
+    transform 560ms var(--j-spring),
+    opacity 320ms ease-out;
+}
+
+.j-tile[data-built] {
+  opacity: 1;
+  transform: none;
+}
+
+.j-bridge {
+  opacity: 0;
+  transform: translate(-96px, -48px);
+  transition:
+    transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 380ms ease-out;
+}
+
+.j-bridge[data-built] {
+  opacity: 1;
+  transform: none;
+}
+
+.j-door {
+  transform-box: fill-box;
+  transition: transform 700ms cubic-bezier(0.3, 0.7, 0.2, 1) 120ms;
+}
+
+.j-island[data-open] .j-door {
+  transform: translateY(-104%);
+}
+
+.j-blink {
+  animation: j-blink 1.8s ease-in-out infinite;
+}
+
+.j-blink--slow {
+  animation-duration: 3s;
+}
+
+.j-float {
+  animation: j-float 4.6s ease-in-out infinite;
+}
+
+.j-pulse {
+  stroke-dasharray: 70;
+  animation: j-dash 2.6s linear infinite;
+}
+
+.j-wave {
+  opacity: 0;
+  animation: j-wave 2.4s ease-out infinite;
+}
+
+.j-glow {
+  animation: j-glow 3.2s ease-in-out infinite;
+}
+
+.j-flag {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: j-flag 2.4s ease-in-out infinite;
+}
+
+/* ---------- traveler ---------- */
+
+.j-traveler {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
+.j-traveler[data-visible] {
+  opacity: 1;
+}
+
+.j-traveler[data-visible] .j-traveler__drop {
+  animation: j-drop 640ms var(--j-spring) both;
+}
+
+.j-traveler__body {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+
+.j-traveler__body[data-facing="left"] {
+  transform: scaleX(-1);
+}
+
+.j-traveler__body[data-walking] .j-leg--a {
+  animation: j-step 320ms ease-in-out infinite;
+}
+
+.j-traveler__body[data-walking] .j-leg--b {
+  animation: j-step 320ms ease-in-out infinite reverse;
+}
+
+/* ---------- places ---------- */
+
+.j-places {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.j-place {
+  position: absolute;
+  width: 170px;
+  height: 160px;
+  border-radius: 50%;
+  transform: translate(-50%, -58%);
+  cursor: pointer;
+}
+
+.j-place:disabled {
+  cursor: default;
+}
+
+.j-place__tag {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 18px);
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+  padding: 5px 12px 6px;
+  border: 1px solid var(--j-line);
+  border-radius: 14px;
+  background: var(--j-card);
+  box-shadow: 0 6px 18px -10px rgba(40, 34, 24, 0.5);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  transition:
+    opacity 400ms ease-out,
+    border-color 300ms ease-out;
+}
+
+.j-place__year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--j-subtle);
+}
+
+.j-place__name {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.j-place[data-cleared] .j-place__name::before {
+  content: "✓ ";
+  color: var(--j-accent-strong);
+}
+
+.j-place[data-current] .j-place__tag {
+  border-color: var(--j-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--j-accent) 35%, transparent);
+}
+
+.j-place[data-locked] .j-place__tag {
+  opacity: 0.55;
+}
+
+.j-place[data-next] .j-place__tag {
+  animation: j-beckon 1.5s ease-in-out infinite;
+}
+
+.journey[data-phase="title"] .j-place__tag {
+  opacity: 0;
+}
+
+/* ---------- keyframes ---------- */
+
+@keyframes j-drift {
+  to {
+    transform: translateX(-60px);
+  }
+}
+
+@keyframes j-blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes j-float {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes j-dash {
+  from {
+    stroke-dashoffset: 140;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes j-wave {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes j-glow {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes j-flag {
+  50% {
+    transform: skewY(7deg);
+  }
+}
+
+@keyframes j-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes j-step {
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes j-beckon {
+  50% {
+    transform: translate(-50%, -5px);
+    border-color: var(--j-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey *,
+  .journey *::before,
+  .journey *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

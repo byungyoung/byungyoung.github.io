@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { CaseStudyPage } from "@/components/po/case-study-page";
-import { caseMetadata, caseParams, findCase, type CaseParams } from "@/lib/case-route";
+import { RedirectStub, redirectMetadata } from "@/components/site/redirect-stub";
+import { caseParams, findCase, type CaseParams } from "@/lib/case-route";
+import { questPath } from "@/lib/journey";
 
 const LANG = "en" as const;
 
@@ -14,17 +15,14 @@ export function generateStaticParams(): CaseParams[] {
   return caseParams();
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  return caseMetadata(slug, LANG);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const caseStudy = findCase((await params).slug);
+  return caseStudy ? redirectMetadata(questPath(caseStudy.slug), LANG) : {};
 }
 
 export default async function Page({ params }: PageProps) {
-  const { slug } = await params;
-  const caseStudy = findCase(slug);
+  const caseStudy = findCase((await params).slug);
   if (!caseStudy) notFound();
 
-  return <CaseStudyPage caseStudy={caseStudy} lang={LANG} />;
+  return <RedirectStub to={questPath(caseStudy.slug)} lang={LANG} />;
 }

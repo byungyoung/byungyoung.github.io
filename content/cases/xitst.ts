@@ -9,16 +9,14 @@ export const xitst: CaseStudy = {
     en: ['With a camera alone,', 'a pipeline that reads psychological state'],
   },
   heroSub: {
-    ko: '접촉식 장비 없이 생체 신호를 추출한다. rPPG 선행 연구가 보고한 정확도를 설계 기준으로 삼아 검증한 과정.',
-    en: 'Extracting biosignals with no contact equipment. The process of validating against the accuracy prior rPPG research had reported, taken as the design target.',
+    ko: '접촉식 장비 없이 생체 신호를 추출한다. 연구용 데이터에서 나온 성능이 실제 사용 환경에서는 그대로 나오지 않는다는 점을 짚고, 실환경 조건으로 다시 학습시킨 과정.',
+    en: 'Extracting biosignals with no contact equipment. The process of spotting that lab performance did not carry over to real usage conditions, and retraining for them.',
   },
   metrics: [
     {
-      value: '92',
-      unit: '%',
-      label: { ko: 'rPPG 선행 연구 보고 정확도', en: 'rPPG accuracy per prior published research' },
-      caveat: { ko: '설계 목표 기준', en: 'design target' },
-      comparison: { ko: '접촉식 PPG는 약 98%', en: 'contact PPG is roughly 98%' },
+      value: '5',
+      label: { ko: '카메라만으로 측정하는 생체신호 종류', en: 'Types of biosignal measured from a camera alone' },
+      caveat: { ko: '심박수, HRV, 산소포화도, 체온, 호흡수', en: 'heart rate, HRV, oxygen saturation, body temperature, respiration' },
     },
   ],
   context: {
@@ -46,8 +44,8 @@ export const xitst: CaseStudy = {
         body: '실시간 처리를 위해 AWS Lambda + API Gateway 서버리스 구조 채택. Next.js SSR로 프론트엔드 응답 속도 최적화.',
       },
       {
-        title: '목표 기준 설정',
-        body: 'rPPG 선행 연구가 보고한 정확도(약 92%, 접촉식 PPG는 약 98%)를 설계 기준으로 삼고, 조명과 움직임 조건별로 신호 품질을 점검하며 파이프라인을 조정.',
+        title: '실환경 조건으로 재학습',
+        body: '연구용 데이터에서 나온 성능이 실제 사용 환경(압축된 카메라 영상)에서는 그대로 나오지 않는다는 점을 짚고, 실환경 조건으로 다시 학습시켜 오차를 줄임. 개선 전후 수치를 함께 공개해 대표 수치가 실사용 성능으로 읽히지 않게 함.',
       },
     ],
     en: [
@@ -64,19 +62,21 @@ export const xitst: CaseStudy = {
         body: 'Adopted an AWS Lambda + API Gateway serverless structure for real-time processing. Optimized frontend response time with Next.js SSR.',
       },
       {
-        title: 'Setting the design target',
-        body: 'Set the design target at the accuracy prior rPPG research had reported (roughly 92%; contact PPG is roughly 98%), and tuned the pipeline while checking signal quality across lighting and movement conditions.',
+        title: 'Retraining for real conditions',
+        body: 'Spotted that lab benchmarks overstated performance on real, compressed camera video, and retrained for real conditions to cut the error. Published before and after numbers side by side so the headline figure could not pass as field results.',
       },
     ],
   },
   results: {
     ko: [
-      'rPPG 선행 연구 보고 정확도(약 92%)를 목표로 한 신호 처리 파이프라인 구현 — 접촉식 PPG(약 98%) 대비 정확도를 내주고 비접촉이라는 접근성을 얻는 트레이드오프',
+      '카메라만으로 심박수, HRV, 산소포화도, 체온, 호흡수 5종을 측정하는 기능을 제품화. 웹에서 시작해 데스크톱, 모바일(iOS, Android), Figma 플러그인까지 확장',
+      '개선 전후 수치를 함께 공개해, 대표 수치가 실사용 성능으로 읽히지 않게 함',
       '실시간 생체 데이터 + 심리 프로필 통합 치료용 채팅 서비스 출시',
       '확장 가능한 서버리스 인프라로 동시 사용자 처리 비용 절감',
     ],
     en: [
-      'Built a signal-processing pipeline targeting the accuracy prior rPPG research reported (roughly 92%) — a trade-off that gives up accuracy against contact PPG (roughly 98%) in exchange for non-contact accessibility',
+      'Productized measuring five signals from a camera alone: heart rate, HRV, oxygen saturation, body temperature and respiration. Took it from web to desktop, mobile (iOS, Android) and a Figma plugin',
+      'Published before and after numbers side by side so the headline figure could not pass as field results',
       'Shipped a therapeutic chat service integrating real-time biosignal data with a psychological profile',
       'Cut concurrent-user processing cost with scalable serverless infrastructure',
     ],
@@ -108,8 +108,8 @@ export const xitst: CaseStudy = {
     {
       option: { ko: '접촉식 PPG 센서 측정', en: 'Contact PPG sensor measurement' },
       reason: {
-        ko: '정확도는 약 98%로 rPPG보다 높다. 하지만 전극과 센서가 필요한 순간 "병원에 가지 않아도 되는 심리 측정"이라는 제품의 전제가 무너진다. 정확도를 내주고 카메라만으로 측정하는 접근성을 얻는 쪽을 택했다.',
-        en: "It's roughly 98% accurate — higher than rPPG. But the moment electrodes and sensors are required, the product's premise — psychological measurement without a hospital visit — falls apart. We chose to give up accuracy in exchange for the accessibility of measuring with a camera alone.",
+        ko: '접촉식은 정확도에서 유리할 수 있다. 하지만 전극과 센서가 필요한 순간 "병원에 가지 않아도 되는 심리 측정"이라는 제품의 전제가 무너진다. 정확도 일부를 내주고 카메라만으로 측정하는 접근성을 얻는 쪽을 택했다.',
+        en: "Contact measurement can be more accurate. But the moment electrodes and sensors are required, the product's premise — psychological measurement without a hospital visit — falls apart. We chose to give up some accuracy in exchange for the accessibility of measuring with a camera alone.",
       },
       status: 'approved',
       evidence: 'xitst.html Result 트레이드오프 서술 + 커밋 78507f6',
@@ -127,8 +127,8 @@ export const xitst: CaseStudy = {
   translationStatus: 'draft',
   meta: {
     description: {
-      ko: '카메라만으로 심리 상태를 읽는 rPPG 파이프라인 케이스 스터디. 선행 연구 보고 정확도를 설계 기준으로 삼아 검증한 과정.',
-      en: 'Case study: a camera-only rPPG pipeline for reading psychological state, built against the accuracy reported by prior published research.',
+      ko: '카메라만으로 심리 상태를 읽는 rPPG 파이프라인 케이스 스터디. 연구용 성능과 실환경 성능의 차이를 짚고 실환경 조건으로 다시 학습시킨 과정.',
+      en: 'Case study: a camera-only rPPG pipeline for reading psychological state, and how lab performance was separated from field performance by retraining for real conditions.',
     },
   },
 }

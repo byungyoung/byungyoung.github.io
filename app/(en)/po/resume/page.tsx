@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
 
-import { ResumePage } from "@/components/resume/resume-page";
-import { resume } from "@/content/resume";
-import { localizedAlternates } from "@/lib/metadata";
+import { RedirectStub, redirectMetadata } from "@/components/site/redirect-stub";
+import { SITE_PATHS } from "@/lib/journey";
 
 const LANG = "en" as const;
-const PATH = "/po/resume/";
 
-export const metadata: Metadata = {
-  title: resume.meta.title[LANG],
-  description: resume.meta.description[LANG],
-  alternates: localizedAlternates(PATH, LANG),
-};
+export const metadata: Metadata = redirectMetadata(SITE_PATHS.resume, LANG);
 
 export default function Page() {
-  return <ResumePage lang={LANG} />;
+  return <RedirectStub to={SITE_PATHS.resume} lang={LANG} />;
 }

@@ -17,8 +17,9 @@ export function findCase(slug: string): CaseStudy | undefined {
   return casesBySlug[slug as CaseSlug];
 }
 
+/** Case studies are served as quests since the 2026-11 game merge. */
 export function casePath(slug: string): string {
-  return `/po/cases/${slug}/`;
+  return `/quests/${slug}/`;
 }
 
 export function caseMetadata(slug: string, lang: Lang): Metadata {
