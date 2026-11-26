@@ -1,0 +1,394 @@
+/* Game layer: character sheet, quest log, trophies, continue screen. */
+
+@layer components {
+  /* ---------- character sheet ---------- */
+
+  .g-sheet {
+    display: grid;
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .g-sheet__id {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .g-portrait {
+    display: grid;
+    height: 128px;
+    place-items: center;
+    border: 2px solid var(--border-strong);
+    background-color: var(--bg);
+    background-image: radial-gradient(var(--g-dot) 1.2px, transparent 1.7px);
+    background-size: 12px 12px;
+  }
+
+  .g-portrait__sprite {
+    width: 60px;
+    height: 80px;
+  }
+
+  .g-sheet__name {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  .g-sheet__facts {
+    display: grid;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .g-sheet__facts dt {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+  }
+
+  .g-sheet__facts dd {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .g-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .g-stat {
+    --g-frame-bg: var(--bg);
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .g-stat__label {
+    order: 1;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .g-stat__value {
+    order: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 30px;
+    line-height: 1.1;
+    color: var(--g-accent-text);
+  }
+
+  .g-stat__unit {
+    font-size: 12px;
+  }
+
+  .g-stat__note {
+    order: 2;
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--text-subtle);
+  }
+
+  .g-stat__detail {
+    color: var(--text-muted);
+  }
+
+  .g-inventory {
+    display: grid;
+    gap: 10px;
+  }
+
+  .g-slot {
+    padding: 14px;
+  }
+
+  .g-slot__title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .g-profile {
+    display: grid;
+    gap: 14px;
+  }
+
+  .g-profile dt {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .g-profile dd {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  @media (min-width: 768px) {
+    .g-stats {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .g-inventory {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .g-profile {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .g-sheet {
+      grid-template-columns: 360px minmax(0, 1fr);
+      grid-template-areas:
+        "id stats"
+        "profile inventory";
+      column-gap: 40px;
+      row-gap: 40px;
+    }
+
+    .g-sheet__id {
+      grid-area: id;
+      align-self: start;
+    }
+
+    .g-sheet__stats {
+      grid-area: stats;
+    }
+
+    .g-sheet__inventory {
+      grid-area: inventory;
+    }
+
+    .g-sheet__profile {
+      grid-area: profile;
+    }
+
+    .g-profile {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* ---------- quest log ---------- */
+
+  .g-quests {
+    display: grid;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .g-quest {
+    display: grid;
+    gap: 10px;
+    padding: 18px;
+  }
+
+  .g-quest[data-active] {
+    border-color: var(--g-accent);
+    border-style: dashed;
+  }
+
+  .g-quest__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .g-quest__num {
+    font-size: 12px;
+    color: var(--g-accent-text);
+  }
+
+  .g-quest__title {
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+
+  .g-quest__link:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--g-accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  .g-quest__body {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--text-muted);
+  }
+
+  .g-quest__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  .g-reward {
+    min-width: 0;
+  }
+
+  .g-reward__label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+  }
+
+  .g-reward__value {
+    margin-top: 2px;
+    font-size: 26px;
+    line-height: 1.15;
+    color: var(--g-accent-text);
+  }
+
+  .g-reward__unit {
+    margin-left: 2px;
+    font-size: 16px;
+  }
+
+  .g-reward__caption {
+    margin-top: 4px;
+    max-width: 46ch;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--text-subtle);
+  }
+
+  @media (min-width: 900px) {
+    .g-quest {
+      grid-template-columns: minmax(0, 1fr) 280px;
+      column-gap: 32px;
+      padding: 24px;
+    }
+
+    .g-quest__head,
+    .g-quest__title,
+    .g-quest__body {
+      grid-column: 1;
+    }
+
+    .g-quest__foot {
+      grid-column: 2;
+      grid-row: 1 / span 3;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+
+  /* ---------- trophies ---------- */
+
+  .g-trophies {
+    display: grid;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
+  .g-trophy {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+  }
+
+  .g-trophy__glyph {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: var(--text);
+  }
+
+  .g-trophy__title {
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .g-trophy__sub {
+    margin-top: 2px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--text-subtle);
+  }
+
+  @media (min-width: 640px) {
+    .g-trophies {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .g-trophies {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* ---------- continue + patch notes ---------- */
+
+  .g-continue {
+    display: grid;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .g-contact {
+    display: grid;
+    gap: 12px;
+  }
+
+  .g-contact dt {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+  }
+
+  .g-contact dd {
+    margin-top: 2px;
+    font-size: 16px;
+  }
+
+  .g-continue__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .g-patch {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 2px dotted var(--border);
+  }
+
+  .g-patch .g-eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .g-footer {
+    padding: 28px 16px 96px;
+    font-size: 11px;
+    text-align: center;
+    color: var(--text-subtle);
+  }
+
+  @media (min-width: 900px) {
+    .g-continue {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+    }
+  }
+}

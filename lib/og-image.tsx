@@ -8,7 +8,7 @@ import { OG_FONT_FAMILY, loadOgFonts } from "@/lib/og-fonts";
 export const OG_SIZE = { width: 1200, height: 630 } as const;
 export const OG_CONTENT_TYPE = "image/png";
 
-/** Game-layer night tokens (app/game.css), hardcoded because satori cannot resolve CSS variables. */
+/** Game-layer night tokens (app/game/tokens.css), hardcoded because satori cannot resolve CSS variables. */
 const PAPER = "#0F1114";
 const INK = "#F2EDE3";
 const SUBTLE = "#A19A8E";

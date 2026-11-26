@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "./game.css";
+@import "./game/tokens.css";
+@import "./game/base.css";
+@import "./game/screens.css";
+@import "./game/sections.css";
+@import "./game/pages.css";
 
 @custom-variant dark (&:is(.dark *));
 

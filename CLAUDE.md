@@ -73,7 +73,7 @@ Port 3000 may be hijacked in Chrome by another project's service worker — use
   number the game shows is a count of content items or a duration from date ranges.
 - **Red means rejected.** `--stamp-red` appears ONLY on rejected options ("paths not
   taken"), and `fix:` tokens in the correction history ("patch notes").
-- Game palette (`app/game.css`, switched on by `.game`): night/day paper-and-ink plus
+- Game palette (`app/game/tokens.css`, switched on by `.game`): night/day paper-and-ink plus
   ONE accent, signal amber, for the player, trail, progress, and primary buttons.
   Pixel display face is Silkscreen (Latin only); hangul falls back to Pretendard.
 - Original pixel art only (`components/game/pixel-art.tsx`). Never imitate a specific

@@ -10,7 +10,7 @@ type GameShellProps = {
   children: ReactNode;
 };
 
-/** `.game` switches the root tokens to the game palette (see app/game.css). */
+/** `.game` switches the root tokens to the game palette (see app/game/tokens.css). */
 export function GameShell({ lang, children }: GameShellProps) {
   return (
     <div className="game">
