@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
-import { PdfPage } from "@/components/game/pdf-page";
-import { game } from "@/content/game";
-import { GAME_PATHS } from "@/lib/game";
+import { PdfPage } from "@/components/plain/pdf-page";
+import { journey } from "@/content/journey";
+import { SITE_PATHS } from "@/lib/journey";
 import { localizedAlternates } from "@/lib/metadata";
 
 const LANG = "en" as const;
 
 export const metadata: Metadata = {
-  title: game.pdf.meta.title[LANG],
-  description: game.pdf.meta.description[LANG],
-  alternates: localizedAlternates(GAME_PATHS.pdf, LANG),
+  title: journey.pdf.meta.title[LANG],
+  description: journey.pdf.meta.description[LANG],
+  alternates: localizedAlternates(SITE_PATHS.pdf, LANG),
 };
 
 export default function Page() {

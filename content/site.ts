@@ -1,8 +1,9 @@
 import type { L } from './types'
 
+/** Final PO résumé (by-brain 2026-10-19) titles the owner "Product Owner". */
 const positioningTitle: L = {
-  ko: 'Technical Product Owner',
-  en: 'Technical Product Owner',
+  ko: 'Product Owner',
+  en: 'Product Owner',
 }
 
 export const site = {

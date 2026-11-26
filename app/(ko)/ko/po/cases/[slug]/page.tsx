@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { RedirectStub, redirectMetadata } from "@/components/site/redirect-stub";
 import { caseParams, findCase, type CaseParams } from "@/lib/case-route";
-import { questPath } from "@/lib/game";
+import { questPath } from "@/lib/journey";
 
 const LANG = "ko" as const;
 

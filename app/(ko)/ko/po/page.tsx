@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 import { RedirectStub, redirectMetadata } from "@/components/site/redirect-stub";
-import { GAME_PATHS } from "@/lib/game";
+import { SITE_PATHS } from "@/lib/journey";
 
 const LANG = "ko" as const;
 
-export const metadata: Metadata = redirectMetadata(GAME_PATHS.home, LANG);
+export const metadata: Metadata = redirectMetadata(SITE_PATHS.home, LANG);
 
 export default function Page() {
-  return <RedirectStub to={GAME_PATHS.home} lang={LANG} />;
+  return <RedirectStub to={SITE_PATHS.home} lang={LANG} />;
 }

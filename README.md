@@ -2,17 +2,20 @@
 
 Personal portfolio of 박병영 (Byungyoung Park) — Technical Product Owner.
 
-Résumé and portfolio in one site that plays like a game: a title screen, a career
-map where every job is a stage, a character sheet, a quest log of case studies, and
-trophies. Recruiters can skip straight to the plain résumé or the PDF at any time.
-The site still publicly corrects its own errors (the "patch notes" at the bottom).
+Résumé and portfolio in one calm, no-scroll journey: a traveler walks an original
+isometric world, one place per career stage. Arriving opens that stage's quest
+(accept, read, QUEST CLEAR with XP and trophies) and builds the path onward.
+Recruiters can skip straight to the plain résumé or the PDFs at any time. The site
+still publicly corrects its own errors (patch notes in the character sheet).
 
 ## Stack
 
 Next.js 15 static export · React 19 · Tailwind v4 · shadcn/ui · pnpm · Node 24
 
 - `/` English (default, no prefix), `/ko/*` Korean — pre-paint language detection
-- `/resume/` plain résumé, `/resume/pdf/` inline PDF viewer (PDF generated at build)
+- `/resume/` plain résumé, `/resume/pdf/` inline PDF viewer (EN and KO CVs)
+- CV files: `public/resume/cv-en.pdf`, `public/resume/cv-ko.pdf` (public copy, no
+  birth date or phone number). Swap the files to update the site.
 - All copy lives in typed bilingual modules under `content/`
 - Unreviewed content (`status: 'draft'`) renders in dev only and is excluded from
   production builds

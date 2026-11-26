@@ -129,32 +129,32 @@ export function PdfViewer({ src, copy }: PdfViewerProps) {
     setZoom((value) => Math.min(Math.max(value + delta, ZOOM_MIN), ZOOM_MAX));
 
   return (
-    <div className="g-pdf g-frame">
-      <div className="g-pdf__toolbar">
-        <span className="g-pixel g-pdf__count" aria-live="polite">
+    <div className="pv">
+      <div className="pv__toolbar">
+        <span className="pv__count" aria-live="polite">
           {status === "ready" ? `${pageCount} ${copy.pageLabel}` : "—"}
         </span>
-        <div className="g-pdf__zoom">
-          <button type="button" className="g-btn g-btn--sm" onClick={() => changeZoom(-ZOOM_STEP)} disabled={zoom <= ZOOM_MIN || status !== "ready"} aria-label={copy.zoomOut}>
+        <div className="pv__zoom">
+          <button type="button" className="pv__btn" onClick={() => changeZoom(-ZOOM_STEP)} disabled={zoom <= ZOOM_MIN || status !== "ready"} aria-label={copy.zoomOut}>
             −
           </button>
-          <button type="button" className="g-btn g-btn--sm" onClick={() => setZoom(ZOOM_MIN)} disabled={zoom === ZOOM_MIN || status !== "ready"}>
+          <button type="button" className="pv__btn" onClick={() => setZoom(ZOOM_MIN)} disabled={zoom === ZOOM_MIN || status !== "ready"}>
             {copy.zoomReset}
           </button>
-          <button type="button" className="g-btn g-btn--sm" onClick={() => changeZoom(ZOOM_STEP)} disabled={zoom >= ZOOM_MAX || status !== "ready"} aria-label={copy.zoomIn}>
+          <button type="button" className="pv__btn" onClick={() => changeZoom(ZOOM_STEP)} disabled={zoom >= ZOOM_MAX || status !== "ready"} aria-label={copy.zoomIn}>
             +
           </button>
         </div>
       </div>
 
-      <div className="g-pdf__scroller" role="region" aria-label={copy.viewerLabel} tabIndex={0}>
-        {status === "loading" ? <p className="g-pdf__status g-pixel">{copy.loading}…</p> : null}
-        {status === "error" ? <p className="g-pdf__status">{copy.error}</p> : null}
-        <div ref={pagesRef} className="g-pdf__pages" data-zoomed={zoom > ZOOM_MIN || undefined}>
+      <div className="pv__scroller" role="region" aria-label={copy.viewerLabel} tabIndex={0}>
+        {status === "loading" ? <p className="pv__status">{copy.loading}…</p> : null}
+        {status === "error" ? <p className="pv__status">{copy.error}</p> : null}
+        <div ref={pagesRef} className="pv__pages" data-zoomed={zoom > ZOOM_MIN || undefined}>
           {Array.from({ length: status === "ready" ? pageCount : 0 }, (_, index) => (
             <canvas
               key={index}
-              className="g-pdf__page"
+              className="pv__page"
               role="img"
               aria-label={`${copy.viewerLabel}, ${copy.pageLabel} ${index + 1} / ${pageCount}`}
             />

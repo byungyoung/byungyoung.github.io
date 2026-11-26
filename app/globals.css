@@ -1,10 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "./game/tokens.css";
-@import "./game/base.css";
-@import "./game/screens.css";
-@import "./game/sections.css";
-@import "./game/pages.css";
+@import "./journey/scene.css";
+@import "./journey/ui.css";
+@import "./plain.css";
 
 @custom-variant dark (&:is(.dark *));
 

@@ -9,7 +9,9 @@ import { resume } from "@/content/resume";
 import { ui } from "@/content/ui";
 import type { Lang } from "@/content/types";
 import { formatDurationParts, formatMonthRange, totalMonths } from "@/lib/duration";
-import { GAME_PATHS, PDF_FILES } from "@/lib/game";
+import { cases } from "@/content/cases";
+import { journey } from "@/content/journey";
+import { PDF_FILES, questPath, SITE_PATHS } from "@/lib/journey";
 import { localizePath } from "@/lib/paths";
 
 const CONTAINER = "max-w-[var(--container)]";
@@ -48,7 +50,7 @@ export function ResumePage({ lang }: ResumePageProps) {
             <span className="max-sm:sr-only">&nbsp;{toolbar.backLabel[lang]}</span>
           </Link>
           <LangToggle lang={lang} className="ms-auto" />
-          <Link href={localizePath(GAME_PATHS.pdf, lang)} className={TOOLBAR_LINK}>
+          <Link href={localizePath(SITE_PATHS.pdf, lang)} className={TOOLBAR_LINK}>
             {toolbar.pdfViewLabel[lang]}
           </Link>
           <a
@@ -68,19 +70,24 @@ export function ResumePage({ lang }: ResumePageProps) {
         <header className="print-avoid-break">
           <h1 className="text-h1 text-foreground">{header.name}</h1>
           <p className="mt-1 font-mono text-label uppercase text-subtle">
-            {header.title[lang]}
+            {header.title[lang]}, {header.headline[lang]}
           </p>
-          <p className="mt-4 max-w-[var(--measure)] text-body-sm text-muted-foreground">
-            {header.tagline[lang]}
-          </p>
+          <div className="mt-4 max-w-[var(--measure)] space-y-3">
+            {header.summary[lang].map((paragraph) => (
+              <p key={paragraph} className="text-body-sm text-muted-foreground">
+                {paragraph}
+              </p>
+            ))}
+          </div>
           <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-1 font-mono text-caption text-muted-foreground">
+            <li>{header.location[lang]}</li>
             <li>{header.email}</li>
             <li>{header.linkedin}</li>
             <li>{header.github}</li>
           </ul>
         </header>
 
-        <section className="mt-10 grid gap-x-8 gap-y-8 border-y border-hairline py-8 sm:grid-cols-3 print-avoid-break">
+        <section className="mt-10 grid gap-x-8 gap-y-8 border-y border-hairline py-8 sm:grid-cols-2 print-avoid-break">
           <div>
             <MetricWithCaveat
               value={total.value}
@@ -126,10 +133,10 @@ export function ResumePage({ lang }: ResumePageProps) {
 
             <RailSection title={sections.skills[lang]}>
               <dl className="space-y-3">
-                {left.skillGroups.map((group) => (
-                  <div key={group.title[lang]}>
+                {left.skillGroups[lang].map((group) => (
+                  <div key={group.title}>
                     <dt className="font-mono text-caption text-subtle">
-                      {group.title[lang]}
+                      {group.title}
                     </dt>
                     <dd className="mt-1 text-caption text-muted-foreground">
                       {group.tags.join("  /  ")}
@@ -199,7 +206,7 @@ export function ResumePage({ lang }: ResumePageProps) {
                       {item.name[lang]}
                     </p>
                     <p className="mt-1 font-mono text-caption tabular-nums text-subtle">
-                      {formatMonthRange(item.dateRange, lang, presentLabel[lang])}
+                      {item.period[lang]}
                     </p>
                   </li>
                 ))}
@@ -225,6 +232,7 @@ export function ResumePage({ lang }: ResumePageProps) {
                   <p className="mt-1 font-mono text-caption tabular-nums text-subtle">
                     {formatMonthRange(entry.dateRange, lang, presentLabel[lang])}
                   </p>
+                  <p className="mt-2 text-body-sm text-muted-foreground">{entry.summary[lang]}</p>
                   <ul className="mt-3 space-y-2">
                     {entry.bullets[lang].map((bullet) => (
                       <li
@@ -242,6 +250,22 @@ export function ResumePage({ lang }: ResumePageProps) {
                 </li>
               ))}
             </ol>
+
+            <h2 className="mt-10 font-mono text-label uppercase text-subtle" data-print-hide>
+              {journey.resumeCases[lang]}
+            </h2>
+            <ul className="mt-4 divide-y divide-hairline border-t border-hairline" data-print-hide>
+              {cases.map((caseStudy) => (
+                <li key={caseStudy.slug} className="py-3">
+                  <Link
+                    href={localizePath(questPath(caseStudy.slug), lang)}
+                    className="text-body-sm text-foreground underline decoration-strong underline-offset-4 hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  >
+                    {caseStudy.name}: {caseStudy.title[lang].join(" ")}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </section>
         </div>
       </main>

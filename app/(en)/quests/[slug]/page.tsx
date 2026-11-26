@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { QuestPage } from "@/components/game/quest-page";
+import { CaseStudyPage } from "@/components/plain/case-study-page";
 import { caseMetadata, caseParams, findCase, type CaseParams } from "@/lib/case-route";
 
 const LANG = "en" as const;
@@ -24,5 +24,5 @@ export default async function Page({ params }: PageProps) {
   const caseStudy = findCase(slug);
   if (!caseStudy) notFound();
 
-  return <QuestPage caseStudy={caseStudy} lang={LANG} />;
+  return <CaseStudyPage caseStudy={caseStudy} lang={LANG} />;
 }

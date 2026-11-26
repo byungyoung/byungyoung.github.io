@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 import { cases } from "@/content/cases";
 import { site } from "@/content/site";
 import { casePath } from "@/lib/case-route";
-import { GAME_PATHS } from "@/lib/game";
+import { SITE_PATHS } from "@/lib/journey";
 import { localizePath } from "@/lib/paths";
 
 export const dynamic = "force-static";
@@ -12,9 +12,9 @@ export const dynamic = "force-static";
  *  /po/ routes are noindex redirects and are left out. */
 function publicPaths(): string[] {
   return [
-    GAME_PATHS.home,
-    GAME_PATHS.resume,
-    GAME_PATHS.pdf,
+    SITE_PATHS.home,
+    SITE_PATHS.resume,
+    SITE_PATHS.pdf,
     ...cases.map((caseStudy) => casePath(caseStudy.slug)),
   ];
 }

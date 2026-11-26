@@ -5,10 +5,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 Personal portfolio site (`byungyoung.github.io`) built as a Next.js 15 static export.
-Résumé and portfolio are one site that plays like a game (**"Career Run"**, owner
-request 2026-11-26): title screen, career map where each job is a stage, character
-sheet, quest log (case studies), trophies. The plain résumé (`/resume/`) keeps the
-original **"결정 문서 (Decision Log)"** document styling and is always one click away.
+Résumé and portfolio are one site that plays like a calm journey (owner direction
+2026-11-26/27): no page scroll on `/`, one full-screen isometric scene where a traveler
+walks from place to place (one place per career stage). Arriving opens that stage's
+quest (accept → page through → QUEST CLEAR with XP and trophies) and builds the path to
+the next place. Plain mode (`/resume/`, `/quests/[slug]/`, `/resume/pdf/`) is normal
+scrolling text in the original **"결정 문서 (Decision Log)"** styling, always one click away.
 
 ## Stack
 
@@ -32,7 +34,7 @@ Port 3000 may be hijacked in Chrome by another project's service worker — use
 
 ## Architecture
 
-- `app/(en)/**` — English surface, NO prefix: `/` (game), `/resume/` (plain résumé),
+- `app/(en)/**` — English surface, NO prefix: `/` (journey), `/resume/` (plain résumé),
   `/resume/pdf/` (inline PDF viewer), `/quests/[slug]/` (case studies).
   `/po/`, `/po/resume/`, `/po/cases/[slug]/` are noindex meta-refresh redirects.
 - `app/(ko)/ko/**` — Korean surface under `/ko`. Two root layouts; no top-level `app/layout.tsx`
@@ -41,14 +43,22 @@ Port 3000 may be hijacked in Chrome by another project's service worker — use
   redirects before paint. Toggle stores explicit choice.
 - `content/*.ts` — ALL copy lives here as typed bilingual modules (`L = Record<'ko'|'en', string>`).
   Components never hardcode copy.
-- `content/game.ts` — game chrome copy only (no facts). `lib/game.ts` derives every
-  stage, stat, quest, and trophy from resume/po-landing/cases at build time.
-- `components/game/` — HUD, title menu, world map, sections, quest page, PDF viewer
-  (pdf.js legacy build, lazy-loaded so it never weighs on the game bundle)
-- `components/doc/` — DraftGate, MarginNote/AnchoredNotes, MetricWithCaveat (plain résumé)
-- Résumé PDFs are generated at build time from `content/resume.ts` by route handlers
-  `app/(en)/resume/byungyoung-park-resume-{en,ko}.pdf/route.ts` (`lib/resume-pdf.tsx`,
-  @react-pdf/renderer). Never commit a hand-made PDF; it would drift from the copy.
+- `content/resume.ts` — the FINAL PO résumé, mirrored from by-brain
+  `output/resume/[resume]박병영.md` (ko) and `[resume]Byungyoung.md` (en), commit
+  3318e1d9a5 (2026-10-19). The two CVs are not translations; bullets differ per language.
+  When the CV changes, update it there first, then here.
+- `content/journey.ts` — journey copy and per-place staging (landmark, sky, trophies with
+  `source`). `lib/journey.ts` builds every place from resume.ts + cases at build time.
+- `components/journey/` — isometric world (`geometry.ts`, `shapes.tsx`, `landmarks.tsx`,
+  `world.tsx`), traveler, camera, quest card, QUEST CLEAR overlay, panels, HUD.
+  SVG + CSS + Web Animations only; no game engine or animation library.
+- `components/plain/` — case-study page and PDF page (plain mode).
+  `components/pdf/pdf-viewer.tsx` — pdf.js legacy build, lazy-loaded.
+- **CV PDFs are drop-in files**: `public/resume/cv-en.pdf` (English CV as submitted) and
+  `public/resume/cv-ko.pdf` (Korean CV, PUBLIC COPY with birth date and phone number
+  removed by re-rendering the source without those rows). Replace the files to update
+  every viewer and download. Never commit the unredacted Korean CV or its source.
+- `components/doc/` — DraftGate, MarginNote/AnchoredNotes, MetricWithCaveat (plain mode)
 - `public/po/*.html` — meta-refresh stubs preserving pre-redesign `.html` URLs
 
 ## Content Rules (hard rules — the site publicly corrects its own errors)
@@ -68,20 +78,23 @@ Port 3000 may be hijacked in Chrome by another project's service worker — use
 
 ## Design Rules
 
-- **No invented numbers in the game.** Skill levels, score bars, and XP that is not
-  computed were removed on 2026-07-30 (commit 4fe9ee9) and must not come back. Every
-  number the game shows is a count of content items or a duration from date ranges.
+- **No invented numbers in the journey.** Skill levels and score bars were removed on
+  2026-07-30 (commit 4fe9ee9) and must not come back. XP = months in a role (computed
+  from date ranges at build time), a level = 12 XP = one year. Nothing else is scored.
 - **Red means rejected.** `--stamp-red` appears ONLY on rejected options ("paths not
   taken"), and `fix:` tokens in the correction history ("patch notes").
-- Game palette (`app/game/tokens.css`, switched on by `.game`): night/day paper-and-ink plus
-  ONE accent, signal amber, for the player, trail, progress, and primary buttons.
-  Pixel display face is Silkscreen (Latin only); hangul falls back to Pretendard.
-- Original pixel art only (`components/game/pixel-art.tsx`). Never imitate a specific
-  existing game's name, characters, art, or look.
+- Journey look (`app/journey/*.css`): soft sky gradients that move from dawn (2016) to
+  night (now), warm paper islands, one ochre accent (the traveler's jacket, progress,
+  primary marks). The journey keeps its own light UI in both site themes.
+- ORIGINAL world only: own landmarks per career stage (workshop, townhouses, gate,
+  library, observatory, beacon) and an original traveler. Never copy Monument Valley or
+  any existing game's characters, architecture, palettes, impossible geometry, or UI.
+- No page scroll on the journey; long quest text scrolls inside the card only.
+- Every animation is skippable (tap anywhere on QUEST CLEAR, tap during a walk) and
+  nothing blocks for more than about two seconds. `prefers-reduced-motion` shows the
+  final state of everything (camera cuts, no walk, no assembly).
 - No emoji in UI copy. `--text-faint` is for decorative marks only — never words.
 - The plain résumé has zero stamps and zero notes, and must stay readable without JS.
-- Motion vocabulary is closed: menu cursor blink, sprite walk (steps), token move on
-  the map, toast in, button press. `prefers-reduced-motion` turns all of it off.
 
 ## Conventions
 
