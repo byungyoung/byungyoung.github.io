@@ -20,6 +20,13 @@ scrolling text in the original **"결정 문서 (Decision Log)"** styling, alway
 - Deployed via GitHub Actions (`.github/workflows/deploy.yml`) → GitHub Pages
   (Pages source is "GitHub Actions"; pushing to `main` deploys)
 
+## Deploy
+
+- `main` → GitHub Pages (byungyoung.github.io) via Actions.
+- calixlab.dev → Cloudflare Worker `portfolio` (static assets): `pnpm deploy:calixlab`
+  builds and runs `wrangler deploy` with `wrangler.jsonc`. Needs `wrangler login` once;
+  no tokens live in the repo.
+
 ## Development
 
 ```bash

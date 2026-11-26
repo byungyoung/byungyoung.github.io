@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "preview": "npx serve out"
+    "preview": "npx serve out",
+    "deploy:calixlab": "bash scripts/deploy-calixlab.sh"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.3.3",
