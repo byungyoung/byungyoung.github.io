@@ -3,17 +3,18 @@ import type { MetadataRoute } from "next";
 import { cases } from "@/content/cases";
 import { site } from "@/content/site";
 import { casePath } from "@/lib/case-route";
+import { GAME_PATHS } from "@/lib/game";
 import { localizePath } from "@/lib/paths";
 
 export const dynamic = "force-static";
 
-/** Every public route, expressed as its bare English path. `/design/` is a QA
- *  surface and is excluded here as well as in robots.txt. */
+/** Every public route, expressed as its bare English path. The pre-merge
+ *  /po/ routes are noindex redirects and are left out. */
 function publicPaths(): string[] {
   return [
-    "/",
-    site.urls.poHome,
-    site.urls.resume,
+    GAME_PATHS.home,
+    GAME_PATHS.resume,
+    GAME_PATHS.pdf,
     ...cases.map((caseStudy) => casePath(caseStudy.slug)),
   ];
 }

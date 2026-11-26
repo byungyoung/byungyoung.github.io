@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { HomePage } from "@/components/home/home-page";
+import { GameHome } from "@/components/game/game-home";
 import { PersonJsonLd } from "@/components/site/person-json-ld";
 import { home } from "@/content/home";
 import { localizedAlternates } from "@/lib/metadata";
@@ -18,7 +18,7 @@ export default function Page() {
   return (
     <>
       <PersonJsonLd />
-      <HomePage lang={LANG} />
+      <GameHome lang={LANG} />
     </>
   );
 }

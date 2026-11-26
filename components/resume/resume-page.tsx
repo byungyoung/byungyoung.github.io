@@ -3,16 +3,18 @@ import type { ReactNode } from "react";
 
 import { AnchoredNotes } from "@/components/doc/anchored-notes";
 import { MetricWithCaveat } from "@/components/doc/metric-with-caveat";
-import { PdfButton } from "@/components/resume/pdf-button";
 import { SiteFooter } from "@/components/site/footer";
 import { LangToggle } from "@/components/site/lang-toggle";
 import { resume } from "@/content/resume";
 import { ui } from "@/content/ui";
 import type { Lang } from "@/content/types";
 import { formatDurationParts, formatMonthRange, totalMonths } from "@/lib/duration";
+import { GAME_PATHS, PDF_FILES } from "@/lib/game";
 import { localizePath } from "@/lib/paths";
 
 const CONTAINER = "max-w-[var(--container)]";
+const TOOLBAR_LINK =
+  "inline-flex h-9 shrink-0 items-center whitespace-nowrap rounded-md border border-border px-2.5 text-caption text-ink transition-colors hover:bg-raised focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
 
 /**
  * Density budget (plan): the résumé is the most restrained surface —
@@ -33,25 +35,31 @@ export function ResumePage({ lang }: ResumePageProps) {
 
   return (
     <>
-      <div
+      <header
         data-print-hide
         className="sticky top-0 z-40 border-b border-hairline bg-background/88 backdrop-blur-md print:hidden"
       >
-        <div className={`mx-auto flex h-14 ${CONTAINER} items-center gap-4 px-6`}>
+        <div className={`mx-auto flex h-14 ${CONTAINER} items-center gap-2 px-4 sm:gap-4 sm:px-6`}>
           <Link
             href={localizePath(toolbar.backHref, lang)}
-            className="font-mono text-caption text-subtle underline decoration-transparent underline-offset-4 transition-colors hover:text-foreground hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+            className="inline-flex min-h-9 items-center whitespace-nowrap font-mono text-caption text-subtle underline decoration-transparent underline-offset-4 transition-colors hover:text-foreground hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
           >
-            {toolbar.backLabel[lang]}
+            <span aria-hidden>←</span>
+            <span className="max-sm:sr-only">&nbsp;{toolbar.backLabel[lang]}</span>
           </Link>
           <LangToggle lang={lang} className="ms-auto" />
-          <PdfButton
-            className="dark:bg-transparent"
-            label={toolbar.pdfLabel[lang]}
-            fileName={toolbar.pdfFileName[lang]}
-          />
+          <Link href={localizePath(GAME_PATHS.pdf, lang)} className={TOOLBAR_LINK}>
+            {toolbar.pdfViewLabel[lang]}
+          </Link>
+          <a
+            href={PDF_FILES[lang]}
+            download={`${toolbar.pdfFileName[lang]}.pdf`}
+            className={TOOLBAR_LINK}
+          >
+            {toolbar.pdfLabel[lang]}
+          </a>
         </div>
-      </div>
+      </header>
 
       <main
         id="main"

@@ -5,8 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 Personal portfolio site (`byungyoung.github.io`) built as a Next.js 15 static export.
-Design concept: **"결정 문서 (Decision Log)"** — the whole site is styled as the working
-document of a PO who records decisions and rejects his own work.
+Résumé and portfolio are one site that plays like a game (**"Career Run"**, owner
+request 2026-11-26): title screen, career map where each job is a stage, character
+sheet, quest log (case studies), trophies. The plain résumé (`/resume/`) keeps the
+original **"결정 문서 (Decision Log)"** document styling and is always one click away.
 
 ## Stack
 
@@ -30,15 +32,23 @@ Port 3000 may be hijacked in Chrome by another project's service worker — use
 
 ## Architecture
 
-- `app/(en)/**` — English surface, NO prefix (`/`, `/po/`, `/po/resume/`, `/po/cases/[slug]/`)
+- `app/(en)/**` — English surface, NO prefix: `/` (game), `/resume/` (plain résumé),
+  `/resume/pdf/` (inline PDF viewer), `/quests/[slug]/` (case studies).
+  `/po/`, `/po/resume/`, `/po/cases/[slug]/` are noindex meta-refresh redirects.
 - `app/(ko)/ko/**` — Korean surface under `/ko`. Two root layouts; no top-level `app/layout.tsx`
 - Language auto-detection: blocking inline script in both layouts' `<head>`
   (`lib/lang-detection.ts`) — localStorage choice first, then `navigator.language`,
   redirects before paint. Toggle stores explicit choice.
 - `content/*.ts` — ALL copy lives here as typed bilingual modules (`L = Record<'ko'|'en', string>`).
   Components never hardcode copy.
-- `components/doc/` — signature components: Stamp, MarginNote, RejectedOption,
-  ChangelogTimeline, MetricWithCaveat, SectionLabel, DocGrid, DraftGate
+- `content/game.ts` — game chrome copy only (no facts). `lib/game.ts` derives every
+  stage, stat, quest, and trophy from resume/po-landing/cases at build time.
+- `components/game/` — HUD, title menu, world map, sections, quest page, PDF viewer
+  (pdf.js legacy build, lazy-loaded so it never weighs on the game bundle)
+- `components/doc/` — DraftGate, MarginNote/AnchoredNotes, MetricWithCaveat (plain résumé)
+- Résumé PDFs are generated at build time from `content/resume.ts` by route handlers
+  `app/(en)/resume/byungyoung-park-resume-{en,ko}.pdf/route.ts` (`lib/resume-pdf.tsx`,
+  @react-pdf/renderer). Never commit a hand-made PDF; it would drift from the copy.
 - `public/po/*.html` — meta-refresh stubs preserving pre-redesign `.html` URLs
 
 ## Content Rules (hard rules — the site publicly corrects its own errors)
@@ -58,16 +68,20 @@ Port 3000 may be hijacked in Chrome by another project's service worker — use
 
 ## Design Rules
 
-- **Red means rejected.** The only chromatic color (`--stamp-red`) appears ONLY on
-  REJECTED stamps, rejection strikethroughs, and `fix:` tokens in the correction
-  history. Everything else is warm paper/ink monochrome.
-- Zero elevation box-shadows. No gradients. No emoji in UI copy. No card grids.
-- `--text-faint` is for decorative marks only (※, ticks) — never words (a11y).
-- Density budgets: main page max 1 margin note; case pages 3-4; resume has zero
-  stamps and zero notes.
-- Motion vocabulary is closed: fade-up reveal, stamp press (md stamps, once),
-  link underline transitions, scroll progress (case pages only). Nothing else.
-  `prefers-reduced-motion` renders final state.
+- **No invented numbers in the game.** Skill levels, score bars, and XP that is not
+  computed were removed on 2026-07-30 (commit 4fe9ee9) and must not come back. Every
+  number the game shows is a count of content items or a duration from date ranges.
+- **Red means rejected.** `--stamp-red` appears ONLY on rejected options ("paths not
+  taken"), and `fix:` tokens in the correction history ("patch notes").
+- Game palette (`app/game.css`, switched on by `.game`): night/day paper-and-ink plus
+  ONE accent, signal amber, for the player, trail, progress, and primary buttons.
+  Pixel display face is Silkscreen (Latin only); hangul falls back to Pretendard.
+- Original pixel art only (`components/game/pixel-art.tsx`). Never imitate a specific
+  existing game's name, characters, art, or look.
+- No emoji in UI copy. `--text-faint` is for decorative marks only — never words.
+- The plain résumé has zero stamps and zero notes, and must stay readable without JS.
+- Motion vocabulary is closed: menu cursor blink, sprite walk (steps), token move on
+  the map, toast in, button press. `prefers-reduced-motion` turns all of it off.
 
 ## Conventions
 

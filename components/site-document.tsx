@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Silkscreen } from "next/font/google";
 
 import { RootShell } from "@/components/root-shell";
 import type { Lang } from "@/content/types";
@@ -16,6 +16,14 @@ const ibmPlexMono = IBM_Plex_Mono({
   preload: false,
 });
 
+/** Pixel display face for the game layer (Latin only; hangul falls back to Pretendard). */
+const silkscreen = Silkscreen({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-pixel",
+  display: "swap",
+});
+
 type SiteDocumentProps = {
   lang: Lang;
   children: ReactNode;
@@ -28,7 +36,7 @@ type SiteDocumentProps = {
  */
 export function SiteDocument({ lang, children }: SiteDocumentProps) {
   return (
-    <html lang={lang} className={ibmPlexMono.variable} suppressHydrationWarning>
+    <html lang={lang} className={`${ibmPlexMono.variable} ${silkscreen.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: LANG_DETECTION_SCRIPT }} />
       </head>

@@ -8,13 +8,14 @@ import { OG_FONT_FAMILY, loadOgFonts } from "@/lib/og-fonts";
 export const OG_SIZE = { width: 1200, height: 630 } as const;
 export const OG_CONTENT_TYPE = "image/png";
 
-/** Paper/ink tokens, hardcoded because satori cannot resolve CSS variables. */
-const PAPER = "#FCFBF9";
-const INK = "#1D1B18";
-const SUBTLE = "#757169";
-const HAIRLINE = "#D8D5CF";
+/** Game-layer night tokens (app/game.css), hardcoded because satori cannot resolve CSS variables. */
+const PAPER = "#0F1114";
+const INK = "#F2EDE3";
+const SUBTLE = "#A19A8E";
+const HAIRLINE = "#2B3038";
+const ACCENT = "#F4B335";
 
-const EYEBROW = "DECISION LOG";
+const EYEBROW = "CAREER RUN";
 const DOMAIN = "byungyoung.github.io";
 
 /** The card headline is the hero H1 verbatim, so the two can never drift. */
@@ -55,7 +56,7 @@ export async function renderOgImage(lang: Lang): Promise<ImageResponse> {
               fontSize: 22,
               fontWeight: 600,
               letterSpacing: 7,
-              color: SUBTLE,
+              color: ACCENT,
             }}
           >
             {EYEBROW}
