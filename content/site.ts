@@ -17,7 +17,7 @@ export const site = {
   alumniOf: '고려대학교',
   worksFor: 'CURI AI',
   urls: {
-    canonical: 'https://byungyoung.github.io',
+    canonical: 'https://info.calixlab.dev',
     github: 'https://github.com/byungyoung',
     /** Public correction record the footer links out to — origin is byungyoung/byungyoung.github.io */
     linkedin: 'https://www.linkedin.com/in/byungyoung',

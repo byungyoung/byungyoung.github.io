@@ -23,7 +23,11 @@ scrolling text in the original **"결정 문서 (Decision Log)"** styling, alway
 ## Deploy
 
 - `main` → GitHub Pages (byungyoung.github.io) via Actions.
-- calixlab.dev → Cloudflare Worker `portfolio` (static assets): `pnpm deploy:calixlab`
+- info.calixlab.dev → the canonical home of this site (owner decision 2026-11-28). Static files on calixlab-arm
+  (Caddy, ungated, `/srv/info`): `pnpm deploy:info` builds and rsyncs over SSH (needs the SSH key).
+  Canonical URLs, OG image domain and sitemap point here. byungyoung.github.io keeps serving the same build.
+- calixlab.dev → Cloudflare Worker `portfolio` (static assets): `pnpm deploy:calixlab`. Until the apex switch it still serves
+  this site; then the apex becomes the landing (byungyoung/calixlab-home) and the old paths redirect to info.
   builds and runs `wrangler deploy` with `wrangler.jsonc`. Needs `wrangler login` once;
   no tokens live in the repo.
 

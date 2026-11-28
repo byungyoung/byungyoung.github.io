@@ -17,7 +17,7 @@ const HAIRLINE = "#CBBFAE";
 const ACCENT = "#8F5C12";
 
 const EYEBROW = "A CAREER JOURNEY";
-const DOMAIN = "byungyoung.github.io";
+const DOMAIN = "info.calixlab.dev";
 
 /** The card headline is the résumé headline verbatim, so the two can never drift. */
 export function ogHeadline(lang: Lang): string {
