@@ -26,10 +26,9 @@ scrolling text in the original **"결정 문서 (Decision Log)"** styling, alway
 - info.calixlab.dev → the canonical home of this site (owner decision 2026-11-28). Static files on calixlab-arm
   (Caddy, ungated, `/srv/info`): `pnpm deploy:info` builds and rsyncs over SSH (needs the SSH key).
   Canonical URLs, OG image domain and sitemap point here. byungyoung.github.io keeps serving the same build.
-- calixlab.dev → Cloudflare Worker `portfolio` (static assets): `pnpm deploy:calixlab`. Until the apex switch it still serves
-  this site; then the apex becomes the landing (byungyoung/calixlab-home) and the old paths redirect to info.
-  builds and runs `wrangler deploy` with `wrangler.jsonc`. Needs `wrangler login` once;
-  no tokens live in the repo.
+- calixlab.dev is the public landing since 2026-11-28 (repo `byungyoung/calixlab-home`, Worker `calixlab-landing`); old paths
+  here (`/resume/*`, `/quests/*`, `/ko/*`, `/po/*`, PDFs) 301 to info. The old Worker `portfolio` still exists as the rollback target:
+  `CONFIRM_APEX_ROLLBACK=1 pnpm deploy:calixlab` moves the apex back to it (see the calixlab-home README, rollback).
 
 ## Development
 
